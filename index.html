@@ -31,10 +31,9 @@
   .selbar{max-width:1100px;margin:0 auto;padding:6px 14px 8px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
   .btn.ghost{background:#fff;border:1px solid var(--line);color:var(--sub)}
   .btn.sm{padding:6px 10px;font-size:12px;border-radius:10px;white-space:nowrap}
-  .navsel{display:flex;gap:5px;flex:1;min-width:0;flex-wrap:wrap}
-  .navsel select.grade-full{flex:1 1 100%;max-width:none;font-size:15px;font-weight:700;padding:9px 10px}
+  .navsel{display:flex;gap:6px;flex:1;min-width:0;flex-wrap:nowrap}
   .navsel::-webkit-scrollbar{display:none}
-  .navsel select{font-size:13px;padding:7px 8px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);max-width:130px}
+  .navsel select{flex:1;min-width:0;font-size:15px;font-weight:700;padding:9px 6px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
   .topbtns{display:flex;gap:6px;flex-wrap:wrap}
   .btn{border-radius:11px;padding:8px 11px;font-size:13px;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;gap:5px}
   .btn:active{transform:scale(.97)}
@@ -178,7 +177,7 @@
   .modal .row{display:flex;gap:7px;justify-content:flex-end;margin-top:10px;flex-wrap:wrap}
   .toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);background:#1f2733;color:#fff;padding:9px 16px;border-radius:22px;font-size:13px;z-index:99;opacity:0;transition:.25s;pointer-events:none;max-width:80vw;text-align:center}
   .toast.show{opacity:1}
-  @media(max-width:560px){.logo .subname{display:none}.topbar{gap:5px}.selbar{padding:4px 8px 6px}.navsel select{max-width:72px;font-size:11px;padding:5px 3px}.btn .lbl{display:none}}
+  @media(max-width:560px){.logo .subname{display:none}.topbar{gap:5px}.selbar{padding:4px 8px 6px}.navsel select{font-size:12px;padding:6px 2px}.btn .lbl{display:none}}
   .catbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
   .czcell.gone{background:#f1f3f7;border-color:var(--line);color:transparent;cursor:default}
   .poemslots{display:flex;flex-direction:column;gap:7px;margin:12px auto;max-width:440px}
@@ -303,7 +302,7 @@
   .jhword{background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:16px;font-weight:700;cursor:pointer;transition:.12s;box-shadow:0 1px 3px rgba(0,0,0,.05)}
   .jhword:active{transform:scale(.95)}
   .jhword.picked{background:#fff3ee;border-color:var(--brand);color:var(--brand)}
-  .jhword.used{opacity:.3;pointer-events:none}
+  .jhword.used{opacity:.45;pointer-events:none;text-decoration:line-through;color:var(--sub)}
   .cbq{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:16px;font-weight:700;line-height:1.7;margin:8px 0}
   .gopts.v{display:flex;flex-direction:column;gap:8px}
   .gopts.v .gopt{text-align:left;padding:11px 14px;font-size:15px;line-height:1.6}
@@ -376,7 +375,7 @@ const GRADES=['一年级','二年级','三年级','四年级','五年级','六�
 const VOLS=['上册','下册'];
 let LESSONS=[], PROGRESS={}, CUR='', SEC='home', PAGE='home';
 let selGrade='四年级', selVol='上册', selUnit='';
-const VERSION='v2.9';
+const VERSION='v2.9.1';
 const REC={};
 let trainFilter='全部', trainState=null;
 const READ={}; let READCAT='全部';
@@ -3719,56 +3718,53 @@ const LESSON_FULL_G3={
 '1 大青树下的小学':{
  author:'吴然',
  read:[
-  {p:1,s:['早晨，从山坡上，从坪坝里，从一条条开着绒球花和太阳花的小路上，走来了许多小学生，有汉族的，有傣族的，有景颇族的，还有阿昌族和德昂族的。','大家穿戴不同，来到学校，都成了好朋友。','那鲜艳的民族服装，把学校打扮得更加绚丽多彩。']},
-  {p:2,s:['"当，当当！当，当当！"大青树上的铜钟敲响了。','上课了，不同民族的小学生，在同一间教室里学习。','大家一起朗读课文，那声音真好听！','这时候，窗外十分安静，树枝不摇了，鸟儿不叫了，蝴蝶停在花朵上，好像都在听同学们读课文。']},
-  {p:3,s:['下课了，大家在大青树下跳孔雀舞、摔跤、做游戏，招引来许多小鸟，连松鼠也赶来看热闹。']},
-  {p:4,s:['这就是我们可爱的小学，一所边疆的小学。','古老的铜钟，挂在大青树粗壮的枝干上。','凤尾竹的影子，在洁白的粉墙上摇晃……']}
+  {p:1,s:['早晨，从山坡上，从坪坝里，从一条条开着绒球花和太阳花的小路上，走来了许多小学生，有汉族的，有傣族的，有景颇族的，还有阿昌族和德昂族的。','大家穿戴不同，来到学校，都成了好朋友。','那鲜艳的服装，把学校打扮得绚丽多彩。','同学们向在校园里欢唱的小鸟打招呼，向敬爱的老师问好，向高高飘扬的国旗敬礼。']},
+  {p:2,s:['"当，当当！当，当当！"大青树上的铜钟敲响了。']},
+  {p:3,s:['上课了，不同民族的小学生，在同一间教室里学习。','大家一起朗读课文，那声音真好听！','这时候，窗外十分安静，树枝不摇了，鸟儿不叫了，蝴蝶停在花朵上，好像都在听同学们读课文。','最有趣的是，跑来了两只猴子。','这些山林里的朋友，是那样好奇地听着。','下课了，大家在大青树下跳孔雀舞、摔跤、做游戏，招引来许多小鸟，连松鼠、山狸也赶来看热闹。']},
+  {p:4,s:['这就是我们可爱的小学，一所边疆的小学。','古老的铜钟，挂在大青树粗壮的枝干上。','凤尾竹的影子，在洁白的墙上摇晃……']}
  ],
- words:{huiRen:[{ch:'坝',py:'bà',zc:['坪坝']},{ch:'绒',py:'róng',zc:['绒球花']},{ch:'晃',py:'huàng',zc:['摇晃']},{ch:'凤',py:'fèng',zc:['凤尾竹']}],huiXie:[
-  {ch:'晨',py:'chén',zc:['早晨','清晨']},{ch:'绒',py:'róng',zc:['绒毛','绒球']},{ch:'球',py:'qiú',zc:['地球','皮球']},
-  {ch:'汉',py:'hàn',zc:['汉族','汉字']},{ch:'艳',py:'yàn',zc:['鲜艳','艳丽']},{ch:'服',py:'fú',zc:['服装','衣服']},
-  {ch:'装',py:'zhuāng',zc:['装扮','假装']},{ch:'扮',py:'bàn',zc:['打扮','装扮']},{ch:'读',py:'dú',zc:['读书','朗读']},
-  {ch:'静',py:'jìng',zc:['安静','平静']},{ch:'停',py:'tíng',zc:['停车','停留']},{ch:'粗',py:'cū',zc:['粗壮','粗细']},
-  {ch:'影',py:'yǐng',zc:['影子','倒影']}
- ],ciyu:['早晨','绒球花','鲜艳','服装','打扮','安静','粗壮','影子','绚丽多彩','坪坝']},
- study:{theme:'课文按"上学路上—上课—下课"的顺序，描写了边疆一所多民族小学的美丽与欢乐：不同民族的孩子一起学习、一起玩耍，团结友爱，表达了作者对这所小学的喜爱和赞美。',
- struct:[{h:'上学路上（1自然段）',b:'各民族的孩子穿着鲜艳的服装走来，成了好朋友。'},{h:'上课（2—3自然段）',b:'大家齐声朗读，窗外安静；下课尽情玩耍，招来小动物。'},{h:'点题（4自然段）',b:'这就是我们可爱的小学，一所边疆的小学。'}],
- anno:[{s:'这时候，窗外十分安静，树枝不摇了，鸟儿不叫了，蝴蝶停在花朵上，好像都在听同学们读课文。',x:'用树枝、鸟儿、蝴蝶的安静，衬托孩子们读书读得认真、读得好听。'},{s:'大家穿戴不同，来到学校，都成了好朋友。',x:'一个"都"字，写出各民族孩子之间的团结友爱。'}],
- homework:[{q:'课文写了这所小学哪几个场景？',a:'上学路上、上课朗读、下课活动三个场景。'},{q:'作者为什么要写窗外的树枝、鸟儿、蝴蝶？',a:'用窗外事物的安静，衬托同学们读书认真、声音好听。'}]},
- train:{基础:[{type:'fill',q:'大青树下的小学是一所____的小学。',a:['边疆']},{type:'choice',q:'课文是按什么顺序写的？',options:['上学路上—上课—下课','下课—上课—上学'],a:0}],
- 拼音:[{type:'fill',q:'给加点字注音：坪坝（坝）',a:['bà']},{type:'fill',q:'给加点字注音：绚丽多彩（绚）',a:['xuàn']}],
- 填空:[{type:'fill',q:'那鲜艳的____，把学校打扮得更加绚丽多彩。',a:['民族服装']},{type:'fill',q:'下课了，大家在大青树下跳孔雀舞、摔跤、____。',a:['做游戏']}],
- 判断:[{type:'judge',q:'这所小学里的孩子来自不同的民族。',a:true},{type:'judge',q:'上课时窗外很吵闹。',a:false},{type:'judge',q:'课文表达了作者对这所小学的喜爱之情。',a:true}],
- 句式:[{type:'sentence',q:'用"有……有……还有……"写一句话。',ref:'示例：公园里的花开了，有红的，有黄的，还有紫的，真好看。'}],
- 课内阅读:[{type:'reading',material:'上课了，不同民族的小学生，在同一间教室里学习。大家一起朗读课文，那声音真好听！这时候，窗外十分安静，树枝不摇了，鸟儿不叫了，蝴蝶停在花朵上，好像都在听同学们读课文。',questions:[{type:'fill',q:'大家一起朗读课文，那声音真____！',a:['好听']},{type:'choice',q:'写树枝、鸟儿、蝴蝶是为了说明什么？',options:['同学们读书认真好听','小动物们很困','窗外风景很美'],a:0},{type:'judge',q:'不同民族的小学生在同一间教室里学习。',a:true}]}],
+ words:{huiRen:[{ch:'扬',py:'yáng',zc:['飘扬','飞扬']},{ch:'凤',py:'fèng',zc:['凤凰','凤尾竹']},{ch:'墙',py:'qiáng',zc:['墙面','围墙']},{ch:'晃',py:'huàng',zc:['摇晃','晃动']}],
+ huiXie:[{ch:'坡',py:'pō',zc:['山坡','坡地']},{ch:'球',py:'qiú',zc:['足球','绒球']},{ch:'汉',py:'hàn',zc:['汉族','汉字']},{ch:'招',py:'zhāo',zc:['招引','招手']},{ch:'钟',py:'zhōng',zc:['铜钟','闹钟']},{ch:'读',py:'dú',zc:['读书','朗读']},{ch:'音',py:'yīn',zc:['声音','音乐']},{ch:'粗',py:'cū',zc:['粗壮','粗心']},{ch:'壮',py:'zhuàng',zc:['粗壮','壮丽']},{ch:'洁',py:'jié',zc:['洁白','整洁']},{ch:'绒',py:'róng',zc:['绒毛','绒球花']}],
+ ciyu:['早晨','山坡','绒球花','服装','打扮','敬礼','铜钟','朗读','安静','好奇','招引','粗壮','影子','洁白','绚丽多彩']},
+ study:{theme:'课文描写了一所边疆的大青树下的小学：不同民族的孩子一起上学、上课、做游戏，小动物也来听课看热闹，体现了各民族儿童之间的友爱团结，表达了作者的自豪与赞美之情。',
+ struct:[{h:'上学路上（1自然段）',b:'早晨，各民族的孩子从山坡、坪坝走来，向小鸟打招呼、向老师问好、向国旗敬礼。'},{h:'上课（2—3自然段）',b:'铜钟敲响，大家一起朗读课文，窗外十分安静，连猴子都好奇地听着。'},{h:'下课（3自然段）',b:'大家跳孔雀舞、摔跤、做游戏，小鸟、松鼠、山狸也赶来看热闹。'},{h:'总结（4自然段）',b:'这就是我们可爱的小学——古老的铜钟、粗壮的大青树、凤尾竹的影子。'}],
+ anno:[{s:'早晨，从山坡上，从坪坝里，从一条条开着绒球花和太阳花的小路上，走来了许多小学生……',x:'三个"从……"写出孩子们从四面八方走来，"有……有……有……还有……"列出不同民族，读起来有节奏感。'},{s:'同学们向在校园里欢唱的小鸟打招呼，向敬爱的老师问好，向高高飘扬的国旗敬礼。',x:'三个"向……"写出孩子们来到学校时的欢快和礼貌。'},{s:'这时候，窗外十分安静，树枝不摇了，鸟儿不叫了，蝴蝶停在花朵上，好像都在听同学们读课文。',x:'用树枝、鸟儿、蝴蝶的安静，衬托孩子们读书专心、声音好听。'},{s:'最有趣的是，跑来了两只猴子。这些山林里的朋友，是那样好奇地听着。',x:'连猴子都来听课，说明这所小学特别可爱，人与自然和谐相处。'}],
+ homework:[{q:'这所学校有哪些特别的地方？',a:'学生来自不同民族；上课特别安静，小动物都来听课；下课活动丰富多彩，小动物来看热闹；学校有古老的铜钟、粗壮的大青树、凤尾竹。'},{q:'课文是从哪几个方面来写的？',a:'先写上学路上和来到学校，再写上课和下课，最后总结赞美这所边疆的小学。'}]},
+ train:{基础:[{type:'choice',q:'课文写了哪几个民族的小学生？',options:['汉族、傣族、景颇族、阿昌族、德昂族','汉族、藏族、蒙古族','只有汉族'],a:0},{type:'judge',q:'上课的时候，窗外十分安静，好像小动物都在听同学们读课文。',a:true},{type:'judge',q:'这所小学位于城市中心。',a:false},{type:'choice',q:'"大家穿戴不同，来到学校，都成了好朋友。"说明什么？',options:['各民族儿童团结友爱','大家穿得都不一样所以不认识','同学们不爱交朋友'],a:0}],
+ 拼音:[{type:'fill',q:'给加点字注音：坪坝（坝）',a:['bà']},{type:'fill',q:'给加点字注音：摔跤（跤）',a:['jiāo']},{type:'fill',q:'给加点字注音：凤尾竹（凤）',a:['fèng']},{type:'fill',q:'给加点字注音：洁白（洁）',a:['jié']}],
+ 填空:[{type:'fill',q:'大家穿戴不同，来到学校，都成了____。',a:['好朋友']},{type:'fill',q:'最有趣的是，跑来了两只____。',a:['猴子']},{type:'fill',q:'这就是我们可爱的小学，一所____的小学。',a:['边疆']},{type:'fill',q:'凤尾竹的影子，在洁白的____上摇晃……',a:['墙']}],
+ 判断:[{type:'judge',q:'课文体现了祖国各民族儿童之间的友爱和团结。',a:true},{type:'judge',q:'下课时，大家在大青树下跳孔雀舞、摔跤、做游戏。',a:true},{type:'judge',q:'上课的时候，窗外很吵闹。',a:false}],
+ 句式:[{type:'fill',q:'仿照"有……有……有……还有……"写一句话。',a:['示例：公园里的人真多，有老人，有小孩，有青年，还有外国游客。']}],
+ 课内阅读:[{type:'reading',material:'上课了，不同民族的小学生，在同一间教室里学习。大家一起朗读课文，那声音真好听！这时候，窗外十分安静，树枝不摇了，鸟儿不叫了，蝴蝶停在花朵上，好像都在听同学们读课文。最有趣的是，跑来了两只猴子。这些山林里的朋友，是那样好奇地听着。',questions:[{type:'fill',q:'这时候，窗外十分____。',a:['安静']},{type:'choice',q:'课文写树枝、鸟儿、蝴蝶的表现，是为了说明什么？',options:['同学们读书专心，声音好听','外面没有风','小动物们睡着了'],a:0},{type:'judge',q:'跑来的两只猴子也好奇地听着同学们读课文。',a:true}]}],
  课外阅读:[]
 },
 },
 '2 花的学校':{
  author:'泰戈尔（印度）',
  read:[
-  {p:1,s:['当雷云在天上轰响，六月的阵雨落下的时候，湿润的东风走过荒野，在竹林中吹着口笛。','于是，一群一群的花从无人知道的地方突然跑出来，在绿草上跳舞，狂欢。']},
-  {p:2,s:['妈妈，我真的觉得那些花朵是在地下的学校里上学。','它们关了门做功课。','如果它们想在散学以前出来游戏，它们的老师是要罚它们站墙角的。']},
-  {p:3,s:['雨一来，它们便放假了。','树枝在林中互相碰触着，绿叶在狂风里簌簌地响，雷云拍着大手。','这时，花孩子们便穿了紫的、黄的、白的衣裳，冲了出来。']},
-  {p:4,s:['你可知道，妈妈，它们的家是在天上，在星星所住的地方。','你没有看见它们怎样地急着要到那儿去吗？','你不知道它们为什么那样急急忙忙吗？','我自然能够猜得出它们是对谁扬起双臂来：它们也有它们的妈妈，就像我有我自己的妈妈一样。']}
+  {p:1,s:['当雷云在天上轰响，六月的阵雨落下的时候，湿润的东风走过荒野，在竹林中吹着风笛。']},
+  {p:2,s:['于是，一群一群的花从无人知道的地方突然跑出来，在绿草上跳舞，狂欢。']},
+  {p:3,s:['妈妈，我真的觉得那些花朵是在地下的学校里上学。']},
+  {p:4,s:['他们关了门做功课。','如果他们想在放学以前出来游戏，他们的老师是要罚他们的。']},
+  {p:5,s:['雨一来，他们便放假了。']},
+  {p:6,s:['树枝在林中互相碰触着，绿叶在狂风里簌簌地响，雷云拍着大手。','这时，花孩子们便穿了紫的、黄的、白的衣裳，冲了出来。']},
+  {p:7,s:['你可知道，妈妈，他们的家是在天上，在星星所住的地方。']},
+  {p:8,s:['你没有看见他们怎样地急着要到那儿去吗？','你不知道他们为什么那样急急忙忙吗？']},
+  {p:9,s:['我自然能够猜得出他们是对谁扬起双臂来：他们也有他们的妈妈，就像我有我自己的妈妈一样。']}
  ],
- words:{huiRen:[{ch:'荒',py:'huāng',zc:['荒野']},{ch:'笛',py:'dí',zc:['口笛','竹笛']},{ch:'罚',py:'fá',zc:['罚站']},{ch:'臂',py:'bì',zc:['双臂']}],huiXie:[
-  {ch:'落',py:'luò',zc:['落下','降落']},{ch:'荒',py:'huāng',zc:['荒野','荒凉']},{ch:'笛',py:'dí',zc:['竹笛','笛子']},
-  {ch:'舞',py:'wǔ',zc:['跳舞','舞蹈']},{ch:'狂',py:'kuáng',zc:['狂欢','狂风']},{ch:'罚',py:'fá',zc:['处罚','罚站']},
-  {ch:'假',py:'jià',zc:['放假','假期']},{ch:'互',py:'hù',zc:['互相','互助']},{ch:'所',py:'suǒ',zc:['住所','场所']},
-  {ch:'够',py:'gòu',zc:['足够','能够']},{ch:'猜',py:'cāi',zc:['猜想','猜测']},{ch:'扬',py:'yáng',zc:['扬起','飞扬']},
-  {ch:'臂',py:'bì',zc:['手臂','双臂']}
- ],ciyu:['雷云','阵雨','荒野','口笛','跳舞','狂欢','放假','衣裳','急急忙忙']},
- study:{theme:'这是泰戈尔的散文诗。诗人用孩子的眼光，把花朵想象成在地下的学校里上学的花孩子：雨一来，它们便放假了，穿着五颜六色的衣裳冲出来，急着回到天上的家。全诗想象丰富，充满童真童趣，表达了对花孩子们自由快乐的赞美。',
- struct:[{h:'花儿开放（1—2自然段）',b:'六月的阵雨落下，一群一群的花跑出来跳舞、狂欢。'},{h:'花的学校（3自然段）',b:'花朵在地下的学校里上学，关了门做功课。'},{h:'花儿放假（4—5自然段）',b:'雨一来，花孩子们便放假了，冲了出来。'},{h:'花儿的家（6—9自然段）',b:'花的家在天上，它们急着去找妈妈。'}],
- anno:[{s:'雨一来，它们便放假了。',x:'把花朵当作孩子来写，雨一来就像放假一样快乐，想象多么奇妙。'},{s:'树枝在林中互相碰触着，绿叶在狂风里簌簌地响，雷云拍着大手。',x:'拟人手法，写出风雨中树林的热闹，烘托花孩子们放假的欢乐。'}],
- homework:[{q:'"花孩子们"的家在哪里？它们为什么急着去？',a:'家在天上，星星所住的地方。因为它们急着去找妈妈。'}]},
- train:{基础:[{type:'fill',q:'《花的学校》的作者是____（国家）的泰戈尔。',a:['印度']},{type:'choice',q:'雨一来，花朵们便怎样了？',options:['放假了','上课了','睡觉了'],a:0}],
- 拼音:[{type:'fill',q:'给加点字注音：荒野（荒）',a:['huāng']},{type:'fill',q:'给加点字注音：口笛（笛）',a:['dí']},{type:'fill',q:'给加点字注音：罚站（罚）',a:['fá']}],
- 填空:[{type:'fill',q:'当雷云在天上轰响，六月的____落下的时候，湿润的东风走过荒野。',a:['阵雨']},{type:'fill',q:'它们关了门做功课。如果它们想在散学以前出来游戏，它们的老师是要罚它们____的。',a:['站墙角']}],
- 判断:[{type:'judge',q:'这首诗把花朵当作孩子来写。',a:true},{type:'judge',q:'花的家在地下。',a:false},{type:'judge',q:'诗中充满了丰富的想象。',a:true}],
- 句式:[{type:'sentence',q:'仿照"雨一来，它们便放假了"，写一个想象句。',ref:'示例：风一吹，柳枝便跳起了舞。'}],
- 课内阅读:[{type:'reading',material:'雨一来，它们便放假了。树枝在林中互相碰触着，绿叶在狂风里簌簌地响，雷云拍着大手。这时，花孩子们便穿了紫的、黄的、白的衣裳，冲了出来。',questions:[{type:'fill',q:'雨一来，它们便____了。',a:['放假']},{type:'choice',q:'"雷云拍着大手"用了什么修辞手法？',options:['拟人','比喻','夸张'],a:0},{type:'judge',q:'花孩子们穿着紫的、黄的、白的衣裳冲了出来。',a:true}]}],
+ words:{huiRen:[{ch:'荒',py:'huāng',zc:['荒野','荒凉']},{ch:'假',py:'jià',zc:['放假','假期']},{ch:'臂',py:'bì',zc:['双臂','臂膀']}],
+ huiXie:[{ch:'轰',py:'hōng',zc:['轰响','轰动']},{ch:'湿',py:'shī',zc:['湿润','湿地']},{ch:'润',py:'rùn',zc:['湿润','润泽']},{ch:'笛',py:'dí',zc:['风笛','竹笛']},{ch:'狂',py:'kuáng',zc:['狂欢','狂风']},{ch:'功',py:'gōng',zc:['功课','成功']},{ch:'罚',py:'fá',zc:['处罚','罚站']},{ch:'互',py:'hù',zc:['互相','互助']},{ch:'碰',py:'pèng',zc:['碰触','碰见']},{ch:'黄',py:'huáng',zc:['黄色','金黄']},{ch:'急',py:'jí',zc:['急忙','着急']}],
+ ciyu:['轰响','阵雨','湿润','风笛','跳舞','狂欢','功课','放假','互相','碰触','衣裳','急急忙忙']},
+ study:{theme:'这是一首散文诗，选自泰戈尔的《新月集》。诗人以儿童的视角，把花朵想象成在地下的学校里上学的孩子：他们做功课、放假、穿了各色衣裳冲出来、急着回家找妈妈，表现了花孩子的活泼可爱和孩子对妈妈的依恋，充满童真童趣。',
+ struct:[{h:'花在跳舞狂欢（1—2自然段）',b:'阵雨落下，湿润的东风吹过荒野，一群一群的花在绿草上跳舞、狂欢。'},{h:'花的学校（3—5自然段）',b:'"我"觉得花朵在地下的学校里上学，关了门做功课；雨一来，他们便放假了。'},{h:'花孩子冲出来（6自然段）',b:'树枝碰触、雷云拍手，花孩子们穿了紫的、黄的、白的衣裳冲了出来。'},{h:'花孩子找妈妈（7—9自然段）',b:'他们的家在天上，他们急急忙忙赶回家，对妈妈扬起双臂。'}],
+ anno:[{s:'湿润的东风走过荒野，在竹林中吹着风笛。',x:'"走过""吹着"把东风当作人来写，写出了东风的轻快，很有新鲜感。'},{s:'于是，一群一群的花从无人知道的地方突然跑出来，在绿草上跳舞，狂欢。',x:'"跑出来""跳舞""狂欢"把花当作孩子来写，想象奇特。'},{s:'雨一来，他们便放假了。',x:'把花朵在雨中开放说成孩子放假，生动形象。可以仿写：清风一吹，他们便……'},{s:'树枝在林中互相碰触着，绿叶在狂风里簌簌地响，雷云拍着大手。',x:'"互相碰触""拍着大手"写出狂风中树枝、雷云的热闹，像在欢迎花孩子们出来。'}],
+ homework:[{q:'课文写了哪几个画面？',a:'花儿在绿草上跳舞狂欢；花朵上学、做功课、放假；花孩子们在雨中冲了出来；花孩子们急急忙忙赶回家找妈妈。'},{q:'为什么说"雨一来，他们便放假了"？',a:'雨水一来，花朵就破土而出、自由开放，就像孩子放假一样快乐自在。'}]},
+ train:{基础:[{type:'choice',q:'《花的学校》的作者是谁？',options:['泰戈尔（印度）','李白','冰心'],a:0},{type:'judge',q:'课文把花朵当作孩子来写，这是拟人的手法。',a:true},{type:'judge',q:'花孩子们的家在地下的学校里。',a:false},{type:'choice',q:'花孩子们的衣裳有哪些颜色？',options:['紫的、黄的、白的','红的、绿的','只有黄色'],a:0}],
+ 拼音:[{type:'fill',q:'给加点字注音：荒野（荒）',a:['huāng']},{type:'fill',q:'给加点字注音：处罚（罚）',a:['fá']},{type:'fill',q:'"放假"的"假"读：',a:['jià']},{type:'fill',q:'给加点字注音：双臂（臂）',a:['bì']}],
+ 填空:[{type:'fill',q:'当雷云在天上轰响，六月的____落下的时候。',a:['阵雨']},{type:'fill',q:'湿润的东风走过荒野，在竹林中吹着____。',a:['风笛']},{type:'fill',q:'雨一来，他们便____了。',a:['放假']},{type:'fill',q:'你可知道，妈妈，他们的家是在____，在星星所住的地方。',a:['天上']}],
+ 判断:[{type:'judge',q:'"湿润的东风走过荒野"把东风当作人来写。',a:true},{type:'judge',q:'花孩子们急着要到天上去，因为他们的妈妈在那里。',a:true},{type:'judge',q:'花朵在地下的学校里一直关着门，永远不会放假。',a:false}],
+ 句式:[{type:'fill',q:'仿照"雨一来，他们便放假了"写一句话。',a:['示例：清风一吹，他们便跳起舞来。']}],
+ 课内阅读:[{type:'reading',material:'妈妈，我真的觉得那些花朵是在地下的学校里上学。他们关了门做功课。如果他们想在放学以前出来游戏，他们的老师是要罚他们的。雨一来，他们便放假了。',questions:[{type:'fill',q:'花朵们在____的学校里上学。',a:['地下']},{type:'choice',q:'"雨一来，他们便放假了"是什么意思？',options:['下雨了，花朵就在雨中开放','雨把学校冲垮了','花朵不喜欢下雨'],a:0},{type:'judge',q:'这段话把花朵当作上学的孩子来写。',a:true}]}],
  课外阅读:[]
 },
 },
@@ -9864,6 +9860,11 @@ function openLedger(){
 }
 // 必背古诗文浏览
 let BISONG_G=0, BISONG_TAB='shi', GUWEN_G=0, RIJI_G=0;
+function fmtRiji(c){
+  if(/——/.test(c)){ return c.split(/；/).map(x=>x.trim()).filter(Boolean).map(x=>esc(x)).join('<br>'); }
+  if(c.length<=160 && /。/.test(c)){ return c.split(/。/).map(x=>x.trim()).filter(Boolean).map(x=>esc(x+'。')).join('<br>'); }
+  return esc(c);
+}
 function openBisong(){
   const tabs=[['shi','📜 古诗词'],['wen','📖 文言文'],['ri','🌱 日积月累']];
   let body='';
@@ -9903,7 +9904,7 @@ function openBisong(){
     <div class="cbhint">${g.g}语文园地「日积月累」（按教材核对）。一年级/五年级将随课本内容填充后补充。</div>`
     +g.items.map(it=>`<div class="card" style="margin:8px 0;padding:12px">
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>${esc(it.t)}</b><span class="tag">${esc(it.v)} · ${esc(it.u)}</span></div>
-      <div style="margin:6px 0;line-height:1.8;color:var(--ink)">${esc(it.c)}</div></div>`).join('');
+      <div style="margin:6px 0;line-height:2;color:var(--ink)">${fmtRiji(it.c)}</div></div>`).join('');
   }
   const h=`<h3>📜 小学必背古诗文 <span class="tag">日积月累</span></h3>
    <div class="catbar" style="margin-bottom:6px">${tabs.map(t=>`<div class="chip ${BISONG_TAB===t[0]?'active':''}" data-tab="${t[0]}" style="font-size:14px;padding:6px 14px">${t[1]}</div>`).join('')}</div>
@@ -10176,14 +10177,18 @@ function bindTrainHead(){
 }
 
 /* ===== 趣味游戏 ===== */
-// ===== v2.9 新游戏一：选词成句（持续闯关）=====
+// ===== v2.9.1 选词成句（模式选择 + 定题量闯关 + 大题库去重）=====
 const JUHE_BANK={
  1:[
   ['太阳','从','东方','升起。'],['小鸟','在','树上','唱歌。'],['我们','爱','自己的','祖国。'],
   ['秋天','到了，','天气','凉了。'],['月亮','像','一个','大圆盘。'],['小明','在','认真地','写字。'],
   ['雪花','从','天空','飘落下来。'],['妈妈','给我','买了','一本书。'],['小鱼','在','水里','游来游去。'],
   ['春天','来了，','花儿','开了。'],['老师','夸','我','爱动脑筋。'],['我','每天','都','锻炼身体。'],
-  ['荷叶','圆圆的，','绿绿的。'],['白杨树','像','士兵一样','挺立着。'],['星星','在','夜空中','眨着眼睛。']
+  ['荷叶','圆圆的，','绿绿的。'],['白杨树','像','士兵一样','挺立着。'],['星星','在','夜空中','眨着眼睛。'],
+  ['弟弟','在','院子里','拍皮球。'],['国旗','在','风中','飘扬。'],['小猫','在','沙发上','睡觉。'],
+  ['雨点','从','云层里','落下来。'],['蜜蜂','在','花丛中','采蜜。'],['同学们','在','教室里','读书。'],
+  ['白云','在','天上','飘着。'],['青蛙','在','荷叶上','唱歌。'],['爷爷','在','公园里','散步。'],
+  ['公鸡','每天','早上','打鸣。'],['柳条','在','风中','跳舞。'],['雪花','落在','大地','上。']
  ],
  2:[
   ['小蝌蚪','在','池塘里','快活地','游来游去。'],['黄山的','奇石','真是','有趣极了。'],
@@ -10193,7 +10198,13 @@ const JUHE_BANK={
   ['我们','要','爱护','公共','财物。'],['他','画了一幅','美丽的','山水画。'],
   ['燕子','从','南方','飞回来了。'],['阳光','洒在','宽阔的','操场上。'],
   ['弟弟','正在','聚精会神地','看书。'],['清澈的','河水','缓缓地','流向远方。'],
-  ['五颜六色的','风筝','在','天空中','飞舞。'],['果园里的','苹果','像','红灯笼','挂满枝头。']
+  ['五颜六色的','风筝','在','天空中','飞舞。'],['果园里的','苹果','像','红灯笼','挂满枝头。'],
+  ['同学们','排着','整齐的','队伍','走进','博物馆。'],['老师','用','红笔','给我们','批改','作业。'],
+  ['他','一口气','跑到了','学校','门口。'],['大家','在','树荫下','乘凉','聊天。'],
+  ['弟弟','把','玩具','收拾得','整整齐齐。'],['我们','在','图书馆里','安静地','看书。'],
+  ['清晨的','校园','格外','宁静。'],['他','高兴地','跳了','起来。'],
+  ['妈妈','在','厨房里','做','香喷喷的','饭菜。'],['运动员','在','跑道上','飞快地','奔跑。'],
+  ['他','仔细地','观察着','地上的','蚂蚁。'],['秋天','给','大地','穿上了','金色的','外衣。']
  ],
  3:[
   ['弯弯的','月亮','像','小船一样','挂在','深蓝的','夜空中。'],
@@ -10209,15 +10220,28 @@ const JUHE_BANK={
   ['他','不但','学习好，','而且','乐于','帮助','同学。'],
   ['一群','活泼可爱的','小燕子','从','南方','赶来，','加入了','春天的','盛会。'],
   ['他','画完','一棵棵','树，','就','高高兴兴地','回家去了。'],
-  ['秋天的雨，','是','一把','钥匙，','打开了','秋天的','大门。']
+  ['秋天的雨，','是','一把','钥匙，','打开了','秋天的','大门。'],
+  ['他','虽然','年纪小，','但是','做起事来','非常','认真。'],
+  ['因为','今天','下大雨，','所以','运动会','改期','举行。'],
+  ['只有','不怕困难','的','人，','才能','到达','胜利的','彼岸。'],
+  ['他','首先','把','教室','打扫干净，','然后','才','回家。'],
+  ['无论','刮风','还是','下雨，','他','都','坚持','锻炼身体。'],
+  ['与其','坐着','空想，','不如','站起来','实际','做一做。'],
+  ['他','不是','我们的','同学，','而是','我们的','老师。'],
+  ['即使','遇到','再大的','困难，','我们','也','不能','退缩。']
  ]
 };
-let JH={level:1,hp:3,score:0,combo:0,order:[],picked:[],bank:[]};
-function jhTier(){ return JH.level<=4?1:(JH.level<=9?2:3); }
+let JH={mode:'',qi:0,total:0,hp:3,score:0,combo:0,right:0,order:[],picked:[],answer:null,used:{1:[],2:[],3:[],_k:0}};
+function jhTiers(){ return JH.mode==='hard'?[2,3]:[1,2]; }
 function jhNewRound(){
-  const tier=jhTier();
-  const bank=JUHE_BANK[tier];
-  const sent=bank[Math.floor(Math.random()*bank.length)];
+  const tiers=jhTiers();
+  // 从允许的档位中取一句本轮没用过的句子，用完一轮再重置，避免重复
+  let cands=[];
+  tiers.forEach(t=>{ JUHE_BANK[t].forEach((s,i)=>{ if(!JH.used[t].includes(i)) cands.push({t,i}); }); });
+  if(!cands.length){ tiers.forEach(t=>JH.used[t]=[]); tiers.forEach(t=>{ JUHE_BANK[t].forEach((s,i)=>cands.push({t,i})); }); }
+  const pick=cands[Math.floor(Math.random()*cands.length)];
+  JH.used[pick.t].push(pick.i);
+  const sent=JUHE_BANK[pick.t][pick.i];
   JH.answer=sent.slice();
   let sh=shuffle(sent.map((w,i)=>({w,i})));
   if(sh.length>2&&sh.every((x,k)=>x.i===k)){ sh=shuffle(sent.map((w,i)=>({w,i}))); }
@@ -10225,145 +10249,241 @@ function jhNewRound(){
 }
 function renderJuhe(){
   const area=$('#gameArea');
+  // 模式选择
+  if(!JH.mode){
+    area.innerHTML=`<div class="ghead">选词成句 · 选择闯关模式</div>
+     <div class="cbhint">把打乱的词语点选成通顺的句子。一组固定题量，答完即通关结算。</div>
+     <div class="grid">
+       <div class="lvl" data-mode="easy"><div class="u">轻松闯关</div><div class="n">🌱 简单模式</div><div class="p">20 题 · 短句为主</div></div>
+       <div class="lvl" data-mode="hard"><div class="u">高手挑战</div><div class="n">🔥 困难模式</div><div class="p">30 题 · 长句关联词</div></div>
+     </div>
+     <div class="grow"><button class="btn" id="jhBack">返回游戏</button></div>`;
+    area.querySelectorAll('[data-mode]').forEach(c=>c.onclick=()=>{
+      const m=c.dataset.mode;
+      JH={mode:m,qi:1,total:m==='hard'?30:20,hp:3,score:0,combo:0,right:0,order:[],picked:[],answer:null,used:{1:[],2:[],3:[],_k:0}};
+      jhNewRound(); renderJuhe();
+    });
+    $('#jhBack').onclick=renderGames;
+    return;
+  }
   if(!JH.answer) jhNewRound();
-  const tier=jhTier();
   const done=JH.picked.length===JH.answer.length;
+  const tier=jhTiers().length>1&&JH.answer.length>=8?(JH.mode==='hard'?3:2):(JH.mode==='hard'?2:1);
+  const stars=JH.answer.length>=8?'⭐⭐⭐':(JH.answer.length>=5?'⭐⭐':'⭐');
   const sentLine=JH.picked.map((p,pi)=>`<span class="jhword picked" data-pi="${pi}">${esc(p.w)}</span>`).join('');
   const pool=JH.order.map((o,oi)=>{ const used=JH.picked.some(p=>p.oi===oi); return `<span class="jhword ${used?'used':''}" data-oi="${oi}">${esc(o.w)}</span>`; }).join('');
   const hearts='❤️'.repeat(JH.hp)+'🤍'.repeat(3-JH.hp);
+  const prog=`<div class="bar" style="height:8px;border-radius:8px;background:#eef1f6;overflow:hidden;margin:6px 0"><i style="display:block;height:100%;width:${Math.round(JH.qi/JH.total*100)}%;background:linear-gradient(90deg,var(--brand),var(--brand2))"></i></div>`;
   let foot='';
   if(done){
     foot=`<div class="grow"><button class="btn primary" id="jhCheck">✅ 检查句子</button><button class="btn" id="jhReset">重新排列</button></div>`;
   } else {
     foot=`<div class="grow"><button class="btn" id="jhReset">重新排列</button><button class="btn warn" id="jhSkip">⚑ 跳过（扣1心）</button></div>`;
   }
-  area.innerHTML=`<div class="ghead">选词成句 · 第 ${JH.level} 关</div>
-   <div class="czprog">${hearts} · 得分 <b>${JH.score}</b> · 连对 <b>${JH.combo}</b> · 难度 ${'⭐'.repeat(tier)}</div>
-   <div class="cbhint">把打乱的词语按正确顺序点选成一句通顺的话。点上方已选词语可以撤回。</div>
+  area.innerHTML=`<div class="ghead">选词成句 · ${JH.mode==='hard'?'困难':'简单'}模式</div>
+   <div class="czprog">第 <b>${JH.qi}</b>/${JH.total} 题 ${hearts} · 得分 <b>${JH.score}</b> · 连对 <b>${JH.combo}</b></div>
+   ${prog}
+   <div class="cbhint">把下面的词语按正确顺序点选成一句通顺的话。用过的词会划线划掉；点上方已选词语可以撤回。难度 ${stars}</div>
    <div class="jhline" id="jhLine">${sentLine||'<span style="color:var(--sub)">👇 从下面点选词语</span>'}</div>
    <div class="jhpool">${pool}</div>
    <div id="jhFb"></div>
    ${foot}`;
-  area.querySelectorAll('.jhpool .jhword:not(.used)').forEach(s=>s.onclick=()=>{ JH.picked.push(JH.order[+s.dataset.oi]); playTick(); renderJuhe(); });
-  area.querySelectorAll('.jhline .jhword').forEach(s=>s.onclick=()=>{ JH.picked.splice(+s.dataset.pi,1); playTick(); renderJuhe(); });
+  area.querySelectorAll('.jhpool .jhword:not(.used)').forEach(s=>s.onclick=()=>{ JH.picked.push(JH.order[+s.dataset.oi]); renderJuhe(); });
+  area.querySelectorAll('.jhline .jhword').forEach(s=>s.onclick=()=>{ JH.picked.splice(+s.dataset.pi,1); renderJuhe(); });
   const rs=$('#jhReset'); if(rs) rs.onclick=()=>{ JH.picked=[]; renderJuhe(); };
   const ck=$('#jhCheck'); if(ck) ck.onclick=()=>{
     const got=JH.picked.map(p=>p.w).join(''); const ans=JH.answer.join('');
     const fb=$('#jhFb');
     if(got===ans){
-      playOk(); JH.combo++; const gain=10+JH.combo*2+tier*3; JH.score+=gain;
+      playOk(); JH.combo++; JH.right++; const gain=10+JH.combo*2; JH.score+=gain;
       if(typeof PTS!=='undefined'&&PTS) PTS.add(1,'选词成句');
-      recordLearn(3,'选词成句');
+      recordLearn(2,'选词成句');
       fb.innerHTML=`<div class="cbwin">✅ 太棒了！+${gain} 分 ${JH.combo>1?'· 连对 x'+JH.combo:''}</div>`;
-      setTimeout(()=>{ JH.level++; JH.picked=[]; JH.answer=null; jhNewRound(); renderJuhe(); },900);
+      setTimeout(()=>{ if(JH.qi>=JH.total){ jhFinish(); } else { JH.qi++; JH.answer=null; jhNewRound(); renderJuhe(); } },900);
     } else {
       playErr(); JH.combo=0; JH.hp--;
-      fb.innerHTML=`<div class="cbreport"><div class="h">❌ 顺序还不太对，再想想！（正确句子供参考）</div><div class="ritem">${esc(ans)}</div></div>`;
-      if(JH.hp<=0){ setTimeout(jhOver,1400); }
-      else setTimeout(renderJuhe,1500);
+      fb.innerHTML=`<div class="cbreport"><div class="h">❌ 顺序还不太对（正确句子供参考）</div><div class="ritem">${esc(ans)}</div></div>`;
+      if(JH.hp<=0){ setTimeout(jhFinish,1400); } else setTimeout(renderJuhe,1500);
     }
   };
-  const sk=$('#jhSkip'); if(sk) sk.onclick=()=>{ JH.hp--; JH.combo=0; if(JH.hp<=0){ jhOver(); return; } JH.level++; JH.picked=[]; JH.answer=null; jhNewRound(); renderJuhe(); };
+  const sk=$('#jhSkip'); if(sk) sk.onclick=()=>{ JH.hp--; JH.combo=0; if(JH.hp<=0){ jhFinish(); return; } if(JH.qi>=JH.total){ jhFinish(); return; } JH.qi++; JH.answer=null; jhNewRound(); renderJuhe(); };
 }
-function jhOver(){
+function jhFinish(){
   const area=$('#gameArea');
-  if(typeof PTS!=='undefined'&&PTS&&JH.level>=5) PTS.add(2,'选词成句闯关');
-  area.innerHTML=`<div class="ghead">选词成句 · 闯关结束</div>
-   <div class="cbwin">🎯 你闯到了第 ${JH.level} 关，共得 ${JH.score} 分！</div>
-   <div class="cbhint">小窍门：先想这句话"谁做什么/什么怎么样"，再按顺序排词语。</div>
-   <div class="grow"><button class="btn primary" id="jhAgain">再闯一次 ▶</button><button class="btn" id="jhBack">返回游戏</button></div>`;
-  $('#jhAgain').onclick=()=>{ JH={level:1,hp:3,score:0,combo:0,order:[],picked:[],answer:null}; jhNewRound(); renderJuhe(); };
-  $('#jhBack').onclick=renderGames;
+  const acc=JH.qi>0?Math.round(JH.right/Math.max(1,JH.qi)*100):0;
+  const bonus=JH.right>=JH.total?100:(JH.right>=JH.total*0.8?50:0);
+  if(bonus&&typeof PTS!=='undefined'&&PTS) PTS.add(3,'选词成句通关奖励');
+  const star=acc>=90?'🏆 金牌小达人':(acc>=70?'🥈 银牌小达人':'🥉 继续加油');
+  area.innerHTML=`<div class="ghead">选词成句 · 闯关结算</div>
+   <div class="cbwin">${star}<br>完成 ${JH.qi} 题 · 答对 ${JH.right} 题 · 正确率 ${acc}% · 总分 ${JH.score+bonus}${bonus?'（含通关奖励 +'+bonus+'）':''}</div>
+   <div class="cbhint">小窍门：先想"谁做什么 / 什么怎么样"，再按顺序排词语；遇到"不但……而且……"这类关联词，先找配对。</div>
+   <div class="grow"><button class="btn primary" id="jhAgain">再闯一组 ▶</button><button class="btn" id="jhMode">切换模式</button><button class="btn" id="jhBack2">返回游戏</button></div>`;
+  $('#jhAgain').onclick=()=>{ const m=JH.mode; JH={mode:m,qi:1,total:m==='hard'?30:20,hp:3,score:0,combo:0,right:0,order:[],picked:[],answer:null,used:{1:[],2:[],3:[],_k:0}}; jhNewRound(); renderJuhe(); };
+  $('#jhMode').onclick=()=>{ JH={mode:'',qi:0,total:0,hp:3,score:0,combo:0,right:0,order:[],picked:[],answer:null,used:{1:[],2:[],3:[],_k:0}}; renderJuhe(); };
+  $('#jhBack2').onclick=renderGames;
 }
-function playTick(){ try{ if(typeof playOk==='function'&&Math.random()<0){} }catch(e){} }
+function playTick(){}
 
-// ===== v2.9 新游戏二：句式改写·寻宝之旅 =====
+// ===== v2.9.1 句式改写·寻宝之旅（寻宝模式 + 无尽模式，题库扩充）=====
 const JUSHI_CHESTS=[
  {name:'陈述疑问岛',icon:'🏝️',qs:[
   {q:'把陈述句改成疑问句："他是一个好学生。"下面哪一句改得正确？',opts:['他是一个好学生吗？','难道他是一个好学生。','他是不是一个好学生呢，吗？','他是一个好学生！'],a:0,x:'陈述句改疑问句，可以在句尾加"吗"，并把句号改成问号。'},
   {q:'把疑问句改成陈述句："我们难道不爱自己的祖国吗？"正确的一项是：',opts:['我们爱自己的祖国。','我们不自己的祖国爱。','我们难道爱自己的祖国。','我们爱自己的祖国吗？'],a:0,x:'反问句改陈述句：去掉"难道……吗"，意思反过来，问号改句号。'},
   {q:'"这部电影真好看。"改成疑问句，正确的是：',opts:['这部电影真好看吗？','这部电影难道真好看。','这部电影真好看！','这部电影好不好看呢吗？'],a:0,x:'句尾加"吗"，句号变问号。'},
   {q:'下面哪一句是疑问句？',opts:['你吃过早饭了吗？','今天天气很好。','快去写作业！','这朵花真美啊！'],a:0,x:'有疑问而发问、句尾用问号的句子是疑问句。'},
-  {q:'"她喜欢跳舞。"改成一般疑问句，正确的是：',opts:['她喜欢跳舞吗？','她喜欢不喜欢跳舞吗？','难道她喜欢跳舞。','她喜欢跳舞！'],a:0,x:'加"吗"、改问号，句子意思不变。'}
+  {q:'"她喜欢跳舞。"改成一般疑问句，正确的是：',opts:['她喜欢跳舞吗？','她喜欢不喜欢跳舞吗？','难道她喜欢跳舞。','她喜欢跳舞！'],a:0,x:'加"吗"、改问号，句子意思不变。'},
+  {q:'把疑问句改成陈述句："这道题你会做吗？"（假设回答是肯定的）正确的是：',opts:['这道题我会做。','这道题我会做吗？','这道题难道我会做。','这道题我不会做吗？'],a:0,x:'去掉疑问词和问号，改成肯定的陈述。'},
+  {q:'"明天会下雨。"改成疑问句，正确的是：',opts:['明天会下雨吗？','明天会不会下雨吗？','难道明天会下雨。','明天会下雨！'],a:0,x:'加"吗"并把句号改为问号。'}
  ]},
  {name:'反问句秘境',icon:'🌋',qs:[
   {q:'把陈述句改成反问句："我们应该珍惜时间。"正确的是：',opts:['我们难道不应该珍惜时间吗？','我们应该珍惜时间吗？','我们不珍惜时间。','我们珍惜不珍惜时间呢？'],a:0,x:'陈述改反问：加"难道不……吗"，句号变问号，语气更强烈。'},
   {q:'把反问句改成陈述句："我们怎么能浪费时间呢？"正确的是：',opts:['我们不能浪费时间。','我们能浪费时间。','我们怎么能浪费时间。','我们要不要浪费时间？'],a:0,x:'反问改陈述：去掉"怎么……呢"，意思取反。'},
   {q:'"这美丽的景色让人流连忘返。"改成反问句，正确的是：',opts:['这美丽的景色怎能不让人流连忘返呢？','这美丽的景色让人流连忘返吗？','这美丽的景色不让人流连忘返。','这美丽的景色让人流连忘返！'],a:0,x:'用"怎能不……呢"加强语气。'},
   {q:'下面哪一句是反问句？',opts:['难道我们能忘记老师的教导吗？','你明天来吗？','这是谁的书？','你知道答案吗？'],a:0,x:'反问句是无疑而问，答案就在句子里。'},
-  {q:'"我们不会忘记妈妈的恩情。"改成反问句，正确的是：',opts:['我们怎么会忘记妈妈的恩情呢？','我们不会忘记妈妈的恩情吗？','我们会忘记妈妈的恩情。','我们忘记妈妈的恩情了吗？'],a:0,x:'否定句改反问：用"怎么会……呢"，意思不变。'}
+  {q:'"我们不会忘记妈妈的恩情。"改成反问句，正确的是：',opts:['我们怎么会忘记妈妈的恩情呢？','我们不会忘记妈妈的恩情吗？','我们会忘记妈妈的恩情。','我们忘记妈妈的恩情了吗？'],a:0,x:'否定句改反问：用"怎么会……呢"，意思不变。'},
+  {q:'反问句"这不是伟大的奇观吗？"表达的意思是：',opts:['这是伟大的奇观。','这不是伟大的奇观。','这也许是伟大的奇观。','不知道这是不是奇观。'],a:0,x:'反问句用疑问的形式表达肯定的意思，语气更强烈。'},
+  {q:'"你必须去道歉。"改成反问句，正确的是：',opts:['你难道不应该去道歉吗？','你必须去道歉吗？','你不必去道歉吗？','你去道歉吗？'],a:0,x:'用"难道不应该……吗"表达强烈的肯定。'}
  ]},
  {name:'双重否定洞',icon:'🕳️',qs:[
   {q:'把肯定句改成双重否定句："大家都同意他的意见。"正确的是：',opts:['没有人不同意他的意见。','大家不同意他的意见。','大家都同意他的意见吗？','有人同意他的意见。'],a:0,x:'"没有……不……"两个否定连用，表达肯定的意思，语气更重。'},
   {q:'把双重否定句改成肯定句："没有人说他不是个好学生。"正确的是：',opts:['大家都说他是好学生。','没有人说他是好学生。','大家都说他不是好学生。','有人说他不是好学生。'],a:0,x:'双重否定表达肯定："没有人说他不……"＝"大家都说他……"。'},
   {q:'"他必须去上学。"改成双重否定句，正确的是：',opts:['他不能不去上学。','他不必去上学。','他不能去上学。','他必须不去上学。'],a:0,x:'"不能不"＝"必须"，双重否定表示肯定。'},
   {q:'下面哪一句是双重否定句？',opts:['我不得不承认他是对的。','我承认他是错的。','我不承认他是对的。','我承认他对吗？'],a:0,x:'"不得不"连用两个否定词，表示"必须、只好"的肯定意思。'},
-  {q:'"我们一定会完成任务。"改成双重否定句，正确的是：',opts:['我们不会不完成任务。','我们不会完成任务。','我们会不完成任务。','我们不一定会完成任务。'],a:0,x:'"不会不"表示"一定会"。'}
+  {q:'"我们一定会完成任务。"改成双重否定句，正确的是：',opts:['我们不会不完成任务。','我们不会完成任务。','我们会不完成任务。','我们不一定会完成任务。'],a:0,x:'"不会不"表示"一定会"。'},
+  {q:'"我不得不把真相告诉他。"这句话的意思是：',opts:['我必须把真相告诉他。','我不能把真相告诉他。','我不要把真相告诉他。','我可能把真相告诉他。'],a:0,x:'"不得不"＝"必须、只好"。'}
  ]},
  {name:'缩句峡谷',icon:'⛰️',qs:[
   {q:'缩句："美丽的姑娘静静地走进了教室。"最恰当的是：',opts:['姑娘走进了教室。','美丽的姑娘走进了教室。','姑娘走进了美丽的教室。','姑娘静静地走。'],a:0,x:'缩句要去掉修饰成分（美丽的、静静地），保留主干。'},
   {q:'缩句："五彩缤纷的蝴蝶在开满鲜花的花丛中翩翩起舞。"最恰当的是：',opts:['蝴蝶翩翩起舞。','蝴蝶在花丛中翩翩起舞。','五彩缤纷的蝴蝶翩翩起舞。','蝴蝶跳舞。'],a:0,x:'去掉"五彩缤纷的""开满鲜花的"等修饰语。'},
   {q:'缩句："我们的班主任在会议上作了一场精彩的报告。"最恰当的是：',opts:['班主任作了报告。','班主任在会议上作了一场精彩的报告。','我们的班主任作了精彩的报告。','班主任会议报告。'],a:0,x:'保留"谁做了什么"的主干。'},
   {q:'缩句："深蓝的天空中挂着一轮金黄的圆月。"最恰当的是：',opts:['天空挂着圆月。','深蓝的天空挂着圆月。','天空挂着一轮金黄的圆月。','天空中有圆月。'],a:0,x:'去掉"深蓝的""一轮""金黄的"等修饰语。'},
-  {q:'下面哪一句缩句缩错了？',opts:['"他高兴得跳了起来"缩成"他高兴"。','"小明认真地写作业"缩成"小明写作业"。','"可爱的小猫在草地上玩耍"缩成"小猫玩耍"。','"老师批改了全部作业"缩成"老师批改了作业"。'],a:0,x:'"高兴得跳起来"中"跳起来"是补充说明高兴的程度，不能丢，应缩成"他高兴得跳起来"或保留补语。'}
+  {q:'下面哪一句缩句缩错了？',opts:['"他高兴得跳了起来"缩成"他高兴"。','"小明认真地写作业"缩成"小明写作业"。','"可爱的小猫在草地上玩耍"缩成"小猫玩耍"。','"老师批改了全部作业"缩成"老师批改了作业"。'],a:0,x:'"高兴得跳起来"中"跳起来"是补充说明高兴的程度，补语要保留。'},
+  {q:'缩句："受惊吓的小鹿飞快地跑进了茂密的森林。"最恰当的是：',opts:['小鹿跑进了森林。','小鹿跑。','受惊吓的小鹿跑进了森林。','小鹿飞快地跑。'],a:0,x:'去掉"受惊吓的""飞快地""茂密的"等修饰语。'}
  ]},
  {name:'扩句森林',icon:'🌲',qs:[
   {q:'扩句："小鸟唱歌。"扩得最恰当的是：',opts:['树上的小鸟欢快地唱着动听的歌。','小鸟在唱歌。','一只小鸟唱歌。','小鸟唱了一天的歌不停地唱。'],a:0,x:'扩句要加上恰当的修饰语（在哪、怎样地），使句子更具体生动。'},
   {q:'扩句："红旗飘扬。"扩得最恰当的是：',opts:['鲜艳的五星红旗在校园里迎风飘扬。','红旗在飘扬。','一面红旗飘扬着。','红旗飘扬得很高很高。'],a:0,x:'加上"什么样的""在哪""怎样地"，让句子更丰满。'},
   {q:'扩句："他看书。"扩得最恰当的是：',opts:['他在教室里聚精会神地看课外书。','他看着书。','他看了一本书。','他看书看得很认真。'],a:0,x:'加上地点、神态、书的类型等修饰语。'},
   {q:'下面哪一句扩句扩得不恰当？',opts:['"太阳升起来了"扩成"红红的太阳从东方缓缓地升起来了，我们都非常高兴地看着它升起来的过程"。','"花开了"扩成"公园里的花开了"。','"他笑了"扩成"他高兴地笑了"。','"雨下起来了"扩成"大雨下起来了"。'],a:0,x:'扩句要简洁恰当，不能啰嗦堆砌。'},
-  {q:'扩句："雪花飘落。"扩得最恰当的是：',opts:['洁白的雪花从天空中纷纷扬扬地飘落下来。','雪花在飘落。','雪花飘落下来了。','很多雪花飘落。'],a:0,x:'加上颜色、地点、状态等修饰语。'}
+  {q:'扩句："雪花飘落。"扩得最恰当的是：',opts:['洁白的雪花从天空中纷纷扬扬地飘落下来。','雪花在飘落。','雪花飘落下来了。','很多雪花飘落。'],a:0,x:'加上颜色、地点、状态等修饰语。'},
+  {q:'扩句："汽车驶过。"扩得最恰当的是：',opts:['一辆崭新的汽车飞快地驶过宽阔的公路。','汽车驶过去了。','汽车在路上。','很多汽车驶过。'],a:0,x:'加上数量、样子、速度、地点等修饰语。'}
  ]},
  {name:'病句诊所',icon:'🏥',qs:[
   {q:'修改病句："我们讨论并听取了校长的报告。"正确的是：',opts:['我们听取并讨论了校长的报告。','我们讨论并听取了校长。','我们听取并讨论了报告。','我们讨论听取了校长的报告。'],a:0,x:'先"听取"才能"讨论"，词语顺序要合理。'},
   {q:'修改病句："他差不多全部把作业做完了。"正确的是：',opts:['他把作业差不多做完了。','他差不多全部做完了作业。','他把作业全部差不多做完了。','他差不多做完了全部。'],a:0,x:'"差不多"和"全部"意思矛盾，删去一个。'},
   {q:'修改病句："我估计他今天一定不会来了。"正确的是：',opts:['我估计他今天不会来了。','我估计他今天一定不会来。','他今天一定不会来了。','我估计他一定今天不会来了。'],a:0,x:'"估计"表示猜测，与"一定"矛盾，删去"一定"。'},
   {q:'修改病句："他穿着一件灰色的上衣，一顶蓝色的帽子。"正确的是：',opts:['他穿着一件灰色的上衣，戴着一顶蓝色的帽子。','他穿着一件灰色的上衣和一顶蓝色的帽子。','他戴着灰色的上衣和蓝色的帽子。','他穿着一件灰色的上衣和戴着。'],a:0,x:'帽子要"戴"，不能"穿"，动词搭配要恰当。'},
-  {q:'下面哪一句没有语病？',opts:['通过这次活动，我受到了很大的教育。','通过这次活动，使我受到了很大的教育。','我受到了很大的教育通过这次活动。','通过这次活动，受到了很大的教育我。'],a:0,x:'"通过……使我……"会缺少主语，去掉"使"。'}
+  {q:'下面哪一句没有语病？',opts:['通过这次活动，我受到了很大的教育。','通过这次活动，使我受到了很大的教育。','我受到了很大的教育通过这次活动。','通过这次活动，受到了很大的教育我。'],a:0,x:'"通过……使我……"会缺少主语，去掉"使"。'},
+  {q:'修改病句："我们要养成爱读书。"正确的是：',opts:['我们要养成爱读书的习惯。','我们要爱读书。','我们要养成读书。','我们养成爱读书。'],a:0,x:'"养成"后面要搭"习惯"，句子成分要完整。'},
+  {q:'修改病句："果园里种着苹果、梨、桃子和水果。"正确的是：',opts:['果园里种着苹果、梨和桃子。','果园里种着水果。','果园里种着苹果、梨、水果。','果园里种着桃子和水果。'],a:0,x:'苹果、梨、桃子都属于水果，不能并列，要删去"和水果"。'}
  ]},
  {name:'修辞宝库',icon:'💎',qs:[
   {q:'仿写比喻句："弯弯的月亮像小船。"下面仿写正确的是：',opts:['闪闪的星星像明亮的眼睛。','星星在天上眨眼睛。','星星真亮啊！','星星是不是像眼睛？'],a:0,x:'比喻要有本体、喻体和比喻词"像"，且两者相似。'},
   {q:'下面哪一句是拟人句？',opts:['小鸟在枝头欢快地唱歌。','小鸟像歌手一样叫。','小鸟的叫声很好听。','我听见小鸟在叫。'],a:0,x:'把小鸟当成人来写（唱歌），是拟人。'},
   {q:'"桂林山水甲天下"用了什么修辞手法？',opts:['夸张','比喻','拟人','排比'],a:0,x:'"甲天下"是夸张的说法，突出桂林山水之美。'},
   {q:'下面哪一句是比喻句？',opts:['平静的湖面像一面大镜子。','湖面很平静。','湖面像平静的样子。','这湖面真平静啊！'],a:0,x:'把湖面比作大镜子，有本体、喻体、比喻词。'},
-  {q:'仿写句子："春天来了，花儿红了，草儿绿了。"下面仿写恰当的是：',opts:['秋天到了，稻子黄了，果子熟了。','秋天来了。','秋天很美丽。','秋天的稻子和果子。'],a:0,x:'仿写要结构相同、内容相关。'}
+  {q:'仿写句子："春天来了，花儿红了，草儿绿了。"下面仿写恰当的是：',opts:['秋天到了，稻子黄了，果子熟了。','秋天来了。','秋天很美丽。','秋天的稻子和果子。'],a:0,x:'仿写要结构相同、内容相关。'},
+  {q:'"危楼高百尺，手可摘星辰"用了什么修辞手法？',opts:['夸张','拟人','排比','反问'],a:0,x:'"手可摘星辰"是夸张，极言楼高。'},
+  {q:'下面哪一句是排比句？',opts:['公园里的花，有的红，有的黄，有的白。','公园里的花很红。','公园里的花像火一样红。','公园里的花红了吗？'],a:0,x:'三个或以上结构相似的句子排列，是排比。'}
+ ]},
+ {name:'关联词港湾',icon:'⚓',qs:[
+  {q:'"他不但学习好，而且乐于助人。"使用的关联词表示：',opts:['递进关系','转折关系','因果关系','选择关系'],a:0,x:'"不但……而且……"表示递进关系。'},
+  {q:'用"虽然……但是……"造句，正确的是：',opts:['虽然今天下雨，但是我们仍然坚持锻炼。','今天下雨，但是今天下雨。','虽然今天下雨，今天下雨了。','但是今天下雨，虽然锻炼。'],a:0,x:'"虽然……但是……"表示转折，前后意思相对。'},
+  {q:'"____明天下雨，运动会____改期举行。"应填：',opts:['如果……就……','虽然……但是……','不但……而且……','因为……所以……'],a:0,x:'这里是假设关系："如果……就……"。'},
+  {q:'"他____会唱歌，____会跳舞。"应填：',opts:['不仅……还……','虽然……但是……','如果……就……','宁可……也不……'],a:0,x:'前后是递进关系，用"不仅……还……"。'},
+  {q:'"____刻苦练习，____能取得好成绩。"应填：',opts:['只有……才……','虽然……但是……','要么……要么……','一边……一边……'],a:0,x:'条件关系："只有……才……"。'},
+  {q:'"宁可自己吃亏，也不让别人为难。"表现的是：',opts:['选择关系','因果关系','转折关系','假设关系'],a:0,x:'"宁可……也不……"表示在两者中做出选择。'}
  ]},
  {name:'综合宝藏殿',icon:'👑',qs:[
-  {q:'"他不但学习好，而且乐于助人。"这个句子使用的关联词表示：',opts:['递进关系','转折关系','因果关系','选择关系'],a:0,x:'"不但……而且……"表示递进关系。'},
-  {q:'用"虽然……但是……"造句，正确的是：',opts:['虽然今天下雨，但是我们仍然坚持锻炼。','今天下雨，但是今天下雨。','虽然今天下雨，今天下雨了。','但是今天下雨，虽然锻炼。'],a:0,x:'"虽然……但是……"表示转折，前后意思相对。'},
   {q:'把反问句改成陈述句："字典不正是我们的无声老师吗？"正确的是：',opts:['字典正是我们的无声老师。','字典不是我们的无声老师。','字典是我们的无声老师吗？','字典不正是无声老师。'],a:0,x:'反问改陈述：去掉"不……吗"，意思取肯定。'},
   {q:'修改病句："我们要继承和发扬艰苦朴素的优良传统。"这句话：',opts:['没有语病','"继承"和"发扬"顺序错了','缺少主语','词语重复'],a:0,x:'先继承后发扬，顺序正确，句子没有语病。'},
   {q:'缩句："激动人心的消息传遍了大江南北。"最恰当的是：',opts:['消息传遍了大江南北。','消息传遍。','激动人心的消息传遍。','消息大江南北。'],a:0,x:'去掉"激动人心的"修饰语，保留主干。'},
-  {q:'把陈述句改成双重否定句："他承认自己错了。"正确的是：',opts:['他不得不承认自己错了。','他不承认自己错了。','他承认自己不错。','他不得不承认自己不错。'],a:0,x:'"不得不"表示"只好、必须"，意思不变。'}
+  {q:'把陈述句改成双重否定句："他承认自己错了。"正确的是：',opts:['他不得不承认自己错了。','他不承认自己错了。','他承认自己不错。','他不得不承认自己不错。'],a:0,x:'"不得不"表示"只好、必须"，意思不变。'},
+  {q:'把陈述句改成反问句："这件事值得我们学习。"正确的是：',opts:['这件事难道不值得我们学习吗？','这件事值得我们学习吗？','这件事不值得我们学习。','这件事值不值得我们学习呢？'],a:0,x:'加"难道不……吗"，句号变问号。'},
+  {q:'扩句："他走进教室。"最恰当的是：',opts:['他悄悄地走进安静的教室。','他走进去了。','他走进了。','他教室走进。'],a:0,x:'加上神态、环境等修饰语。'},
+  {q:'下面哪一句没有语病？',opts:['我们要尽量减少不必要的浪费。','我们要减少不必要的浪费。','我们要防止浪费不再发生。','我们要杜绝浪费的现象不再出现。'],a:1,x:'"减少不必要的浪费"通顺；"防止/杜绝……不再"否定用错，意思反了。'}
  ]}
 ];
-let JS={chest:0,qi:0,gems:0,hp:5,combo:0,done:[],qs:[]};
+let JS={mode:'',chest:0,qi:0,gems:0,hp:5,combo:0,score:0,done:[],qs:[],showMap:true,endQs:[],endI:0,best:0};
 function jsStartChest(ci){ JS.chest=ci; JS.qi=0; JS.qs=shuffle(JUSHI_CHESTS[ci].qs.slice()); renderJushi(); }
 function renderJushi(){
   const area=$('#gameArea');
-  // 地图模式：选宝箱
-  if(JS.chest<0||JS.showMap){
+  // 玩法选择
+  if(!JS.mode){
+    const best=JS.best||0;
+    area.innerHTML=`<div class="ghead">句式改写 · 选择玩法</div>
+     <div class="cbhint">两种玩法：寻宝之旅按岛屿逐关解锁；无尽挑战打乱全部题目，看能连对多少题。</div>
+     <div class="grid">
+       <div class="lvl" data-mode="map"><div class="u">经典玩法</div><div class="n">🗺️ 寻宝之旅</div><div class="p">${JUSHI_CHESTS.length} 座岛屿逐岛闯关</div></div>
+       <div class="lvl" data-mode="endless"><div class="u">极限玩法</div><div class="n">♾️ 无尽挑战</div><div class="p">全题库打乱 · 3 颗心</div></div>
+     </div>
+     ${best?`<div class="cbhint">无尽挑战最佳纪录：${best} 题</div>`:''}
+     <div class="grow"><button class="btn" id="jsBack">返回游戏</button></div>`;
+    area.querySelectorAll('[data-mode]').forEach(c=>c.onclick=()=>{
+      JS.mode=c.dataset.mode;
+      if(JS.mode==='endless'){ JS.endQs=shuffle(JUSHI_CHESTS.flatMap(ch=>ch.qs)); JS.endI=0; JS.hp=3; JS.combo=0; JS.score=0; }
+      else { JS.showMap=true; JS.hp=5; }
+      renderJushi();
+    });
+    $('#jsBack').onclick=renderGames;
+    return;
+  }
+  // 无尽模式
+  if(JS.mode==='endless'){
+    if(JS.hp<=0||JS.endI>=JS.endQs.length){
+      if(JS.score>JS.best) JS.best=JS.score;
+      if(typeof PTS!=='undefined'&&PTS&&JS.score>=10) PTS.add(2,'句式无尽挑战');
+      area.innerHTML=`<div class="ghead">句式改写 · 无尽挑战结束</div>
+       <div class="cbwin">♾️ 答对 ${JS.score} 题 · 最佳纪录 ${JS.best} 题</div>
+       <div class="grow"><button class="btn primary" id="jsEndAgain">再来一轮 ▶</button><button class="btn" id="jsEndMode">切换玩法</button><button class="btn" id="jsEndBack">返回游戏</button></div>`;
+      $('#jsEndAgain').onclick=()=>{ JS.endQs=shuffle(JUSHI_CHESTS.flatMap(ch=>ch.qs)); JS.endI=0; JS.hp=3; JS.combo=0; JS.score=0; renderJushi(); };
+      $('#jsEndMode').onclick=()=>{ JS.mode=''; renderJushi(); };
+      $('#jsEndBack').onclick=renderGames;
+      return;
+    }
+    const q=JS.endQs[JS.endI];
+    const hearts='❤️'.repeat(JS.hp)+'🤍'.repeat(3-JS.hp);
+    area.innerHTML=`<div class="ghead">♾️ 无尽挑战 · 第 ${JS.endI+1} 题</div>
+     <div class="czprog">${hearts} · 已答对 <b>${JS.score}</b> · 连对 <b>${JS.combo}</b></div>
+     <div class="cbq">${esc(q.q)}</div>
+     <div class="gopts v">${q.opts.map((o,i)=>`<button class="gopt" data-oi="${i}">${'ABCD'[i]}. ${esc(o)}</button>`).join('')}</div>
+     <div id="gfb"></div>
+     <div class="grow"><button class="btn ghost sm" id="jsEndQuit">结束挑战</button></div>`;
+    area.querySelectorAll('.gopt').forEach(b=>b.onclick=()=>{
+      if(area.dataset.lock) return; area.dataset.lock='1';
+      const i=+b.dataset.oi; const ok=i===q.a;
+      area.querySelectorAll('.gopt').forEach(x=>{ x.classList.add('done'); if(+x.dataset.oi===q.a) x.classList.add('ok'); });
+      if(ok){ b.classList.add('ok'); playOk(); JS.combo++; JS.score++; if(typeof PTS!=='undefined'&&PTS) PTS.add(0.5,'句式无尽'); }
+      else { b.classList.add('no'); playErr(); JS.combo=0; JS.hp--; }
+      $('#gfb').innerHTML=`<div class="cbreport"><div class="h">${ok?'✅ 答对了！':'❌ 正确答案是 '+'ABCD'[q.a]}</div><div class="ritem" style="border:none">${esc(q.x)}</div></div>
+       <div class="grow"><button class="btn primary" id="jsEndNext">下一题 ▶</button></div>`;
+      $('#jsEndNext').onclick=()=>{ area.dataset.lock=''; JS.endI++; renderJushi(); };
+    });
+    $('#jsEndQuit').onclick=()=>{ JS.hp=0; renderJushi(); };
+    return;
+  }
+  // 寻宝地图
+  if(JS.showMap){
     const map=JUSHI_CHESTS.map((c,i)=>{
-      const st=JS.done.includes(i)?'done':(i===Math.min(...JUSHI_CHESTS.map((_,k)=>JS.done.includes(k)?99:k))||i===0&&!JS.done.length?'cur':'lock');
       const unlocked=JS.done.includes(i)||i===0||JS.done.includes(i-1);
       return `<div class="lvl ${JS.done.includes(i)?'done':''}" data-chest="${i}" style="${unlocked?'':'opacity:.45;pointer-events:none'}"><div class="u">${unlocked?'':'🔒 '}${c.name}</div><div class="n" style="font-size:22px">${c.icon}</div><div class="p">${JS.done.includes(i)?'✅ 已通关':unlocked?'点击闯关':'先通过上一关'}</div></div>`;
     }).join('');
     const hearts='❤️'.repeat(JS.hp)+'🤍'.repeat(5-JS.hp);
     area.innerHTML=`<div class="ghead">句式改写 · 寻宝之旅</div>
      <div class="czprog">${hearts} · 宝石 <b>💎 ${JS.gems}</b> · 连对 <b>${JS.combo}</b></div>
-     <div class="cbhint">闯过一座座岛屿，收集语言宝石！每座岛 5~6 道题，答错扣 1 颗心，心用完寻宝失败。</div>
+     <div class="cbhint">闯过一座座岛屿，收集语言宝石！每座岛 6~7 道题，答错扣 1 颗心，心用完寻宝失败。</div>
      <div class="grid">${map}</div>
      ${JS.hp<=0?'<div class="cbreport"><div class="h">💔 心用完了，重整旗鼓再出发吧！</div></div>':''}
-     <div class="grow"><button class="btn" id="jsReset">🔄 重置寻宝</button><button class="btn" id="jsBack">返回游戏</button></div>`;
+     <div class="grow"><button class="btn" id="jsReset">🔄 重置寻宝</button><button class="btn" id="jsModeSwitch">切换玩法</button><button class="btn" id="jsBack2">返回游戏</button></div>`;
     area.querySelectorAll('[data-chest]').forEach(c=>c.onclick=()=>{ JS.showMap=false; jsStartChest(+c.dataset.chest); });
-    $('#jsReset').onclick=()=>{ JS={chest:0,qi:0,gems:0,hp:5,combo:0,done:[],qs:[],showMap:true}; renderJushi(); };
-    $('#jsBack').onclick=renderGames;
+    $('#jsReset').onclick=()=>{ const m=JS.mode,b=JS.best; JS={mode:m,chest:0,qi:0,gems:0,hp:5,combo:0,score:0,done:[],qs:[],showMap:true,endQs:[],endI:0,best:b}; renderJushi(); };
+    $('#jsModeSwitch').onclick=()=>{ JS.mode=''; renderJushi(); };
+    $('#jsBack2').onclick=renderGames;
     return;
   }
   // 答题模式
   const chest=JUSHI_CHESTS[JS.chest];
   if(JS.qi>=JS.qs.length){
-    // 宝箱通关
     JS.done.push(JS.chest); JS.gems+=3;
     if(typeof PTS!=='undefined'&&PTS) PTS.add(2,'句式寻宝通关');
     recordLearn(5,'句式寻宝');
@@ -10387,7 +10507,7 @@ function renderJushi(){
     area.querySelectorAll('.gopt').forEach(x=>{ x.classList.add('done'); if(+x.dataset.oi===q.a) x.classList.add('ok'); });
     if(ok){ b.classList.add('ok'); playOk(); JS.combo++; JS.gems++; if(typeof PTS!=='undefined'&&PTS) PTS.add(0.5,'句式寻宝'); }
     else { b.classList.add('no'); playErr(); JS.combo=0; JS.hp--; }
-    $('#gfb').innerHTML=`<div class="cbreport"><div class="h">${ok?'✅ 答对了！宝石+1':'❌ 再想想！'}</div><div class="ritem" style="border:none">${esc(q.x)}</div></div>
+    $('#gfb').innerHTML=`<div class="cbreport"><div class="h">${ok?'✅ 答对了！宝石+1':'❌ 正确答案是 '+'ABCD'[q.a]}</div><div class="ritem" style="border:none">${esc(q.x)}</div></div>
      <div class="grow"><button class="btn primary" id="jsNextQ">${JS.hp<=0?'查看结果':'下一题 ▶'}</button></div>`;
     $('#jsNextQ').onclick=()=>{ area.dataset.lock=''; if(JS.hp<=0){ JS.showMap=true; renderJushi(); return; } JS.qi++; renderJushi(); };
   });
@@ -10404,10 +10524,10 @@ function renderGames(){
     if(g.type==='py') GAME.items=buildPyItems();
     else if(g.type==='poem') GAME.pi=Math.floor(Math.random()*GAMES.find(x=>x.id==='poem').poems.length);
     else if(g.type==='idiom') GAME.si=Math.floor(Math.random()*GAMES.find(x=>x.id==='idiom').sets.length);
-    else if(g.type==='cuobie'){ CB.stage=1; CB.text=''; CB.giveup=false; }
+    else if(g.type==='cuobie'){ CB.stage=1; CB.text=''; CB.giveup=false; CB.usedTraps=new Set(); }
     else if(g.type==='qiqiu'){ QQ.items=[]; }
-    else if(g.type==='juhe'){ JH={level:1,hp:3,score:0,combo:0,order:[],picked:[],answer:null}; jhNewRound(); }
-    else if(g.type==='jushi'){ JS={chest:0,qi:0,gems:0,hp:5,combo:0,done:[],qs:[],showMap:true}; }
+    else if(g.type==='juhe'){ JH={mode:'',qi:0,total:0,hp:3,score:0,combo:0,right:0,order:[],picked:[],answer:null,used:{1:[],2:[],3:[],_k:0}}; }
+    else if(g.type==='jushi'){ const _b=(typeof JS!=='undefined'&&JS.best)||0; JS={mode:'',chest:0,qi:0,gems:0,hp:5,combo:0,score:0,done:[],qs:[],showMap:true,endQs:[],endI:0,best:_b}; }
     if(CUR) recordLearn(10, CUR+'·游戏·'+g.name);
     $('#gameGrid').style.display='none'; $('#gameBack').style.display=''; renderGame(); });
 }
@@ -10801,7 +10921,8 @@ const CONFUSE_EXT={
 '喝':'渴','渴':'喝','低':'底','底':'低','辛':'幸','幸':'辛','未':'末','末':'未','己':'已','已':'己',
 '人':'入','入':'人','土':'士','士':'土','乌':'鸟','鸟':'乌','休':'体','体':'休','拨':'拔','拔':'拨',
 '蜂':'峰','峰':'蜂','飘':'漂','漂':'飘','状':'壮','壮':'状','值':'直','直':'值','明':'名','名':'明',
-'友':'有','有':'友','候':'猴','猴':'候','副':'幅','幅':'副','郎':'朗','朗':'郎'
+'友':'有','有':'友','候':'猴','猴':'候','副':'幅','幅':'副','郎':'朗','朗':'郎',
+'净':'静','此':'些','忽':'勿','赶':'敢','决':'绝','须':'需','该':'刻','骄':'娇','暖':'援','察':'查','纪':'记','谦':'歉','励':'厉','厉':'历','历':'厉','炼':'练','练':'炼','绕':'饶','浇':'烧','匆':'勿','慌':'荒','骗':'偏','慕':'暮','幕':'慕','壁':'璧','柔':'揉','朴':'扑','忠':'钟','诚':'成'
 };
 const CB_TPL=[
  w=>'听写时，我工工整整地写出了"\u0000"。',
@@ -10813,7 +10934,7 @@ const CB_TPL=[
  w=>'妈妈考我："\u0000"这个词会写了吗？',
  w=>'我大声朗读课文，读到了"\u0000"这个词。'
 ];
-const CB_GENERIC=[['公园','园','圆'],['朋友','友','有'],['蓝天','蓝','篮'],['座位','座','坐'],['作业','作','做'],['值日','值','直'],['已经','已','己'],['明天','明','名'],['眼睛','睛','晴'],['喝水','喝','渴'],['低处','低','底'],['幸福','幸','辛'],['蜜蜂','蜜','密'],['飘扬','飘','漂'],['形状','状','壮'],['休息','休','体'],['鸟窝','鸟','乌'],['士兵','士','土'],['再见','再','在'],['猴子','猴','候']];
+const CB_GENERIC=[['公园','园','圆'],['朋友','友','有'],['蓝天','蓝','篮'],['座位','座','坐'],['作业','作','做'],['值日','值','直'],['已经','已','己'],['明天','明','名'],['眼睛','睛','晴'],['喝水','喝','渴'],['低处','低','底'],['幸福','幸','辛'],['蜜蜂','蜜','密'],['飘扬','飘','漂'],['形状','状','壮'],['休息','休','体'],['鸟窝','鸟','乌'],['士兵','士','土'],['再见','再','在'],['猴子','猴','候'],['干净','净','静'],['从此','此','些'],['忽然','忽','勿'],['赶紧','赶','敢'],['决定','决','绝'],['必须','须','需'],['应该','该','刻'],['骄傲','骄','娇'],['温暖','暖','援'],['观察','察','查'],['纪律','纪','记'],['纪念','纪','记'],['谦虚','谦','歉'],['鼓励','励','厉'],['严厉','厉','历'],['历史','历','厉'],['锻炼','炼','练'],['围绕','绕','饶'],['浇水','浇','烧'],['匆忙','匆','勿'],['慌张','慌','荒'],['欺骗','骗','偏'],['羡慕','慕','暮'],['屏幕','幕','慕'],['墙壁','壁','璧'],['柔软','柔','揉'],['朴素','朴','扑'],['忠实','忠','钟']];
 // 从当前课文 + 通用词库收集「词语 + 形近字替换」陷阱，混合随机，保证每轮多样
 function cbTraps(need){
   const L=curLesson(); const lesson=[];
@@ -10825,12 +10946,17 @@ function cbTraps(need){
   }
   const generic=CB_GENERIC.map(g=>{ const idx=g[0].indexOf(g[1]); return {w:g[0],i:idx>=0?idx:0,right:g[1],wrong:g[2]}; }).filter(t=>t.wrong);
   // 混合：课文候选为主，通用兜底，一起打乱 → 每轮组合不同
-  const pool=shuffle([...lesson,...generic,...generic]);
+  let pool=shuffle([...lesson,...generic,...generic]);
+  // 本局去重：用过的「词+位置」不再出，池子耗尽才重置，避免老是同一组
+  if(!CB.usedTraps) CB.usedTraps=new Set();
+  const fresh=pool.filter(t=>!CB.usedTraps.has(t.w+'#'+t.i));
+  if(fresh.length>=need) pool=fresh; else if(fresh.length===0) CB.usedTraps=new Set();
   const picked=[]; const usedW=new Set(); const usedPos=new Set();
   // 第一遍：每个词只用一次
   for(const t of pool){ if(picked.length>=need) break; if(usedW.has(t.w)) continue; usedW.add(t.w); usedPos.add(t.w+'#'+t.i); picked.push(t); }
   // 第二遍：不够则允许同词不同位
   for(const t of pool){ if(picked.length>=need) break; const k=t.w+'#'+t.i; if(usedPos.has(k)) continue; usedPos.add(k); picked.push(t); }
+  picked.forEach(t=>CB.usedTraps.add(t.w+'#'+t.i));
   return picked;
 }
 function buildCuobie(){
@@ -11107,6 +11233,7 @@ function openAdd(){
 
 
 const CHANGELOG=[
+ {v:'v2.9.1',date:'2026-08-16',items:['日积月累排版优化：名言警句逐条换行，不再挤成一团','选教材的四个选项全部占满一行并放大字体','选词成句重做：进入时可选简单（20题）/困难（30题）模式，有进度条和结算评级；用过的词划线划掉；题库扩充至74句且整组不重复','消灭错别字：错字库从20组扩到48组+形近字库扩充，同一局内不再重复出同一组错字','句式寻宝：新增"关联词港湾"岛屿，各岛题目扩充至51题，新增"无尽挑战"玩法（全题库打乱、3颗心、记录最佳成绩）']},
  {v:'v2.9',date:'2026-08-16',items:['多用户系统：顶栏 👤 可创建/切换/删除用户，每个用户独立保存学习进度、积分、行为数据','学习行为明细：自动记录在每个功能、每篇课文的停留时长，首页积分卡点「📊 行为明细」查看；每学满 5 分钟奖励 1 积分','必背古诗文扩充：新增小学必背文言文 12 篇（司马光/守株待兔/精卫填海/王戎不取道旁李/囊萤夜读/铁杵成针/自相矛盾/杨氏之子/伯牙鼓琴/书戴嵩画牛/学弈/两小儿辩日），新增二/三/四/六年级语文园地日积月累（均按教材核对）','趣学新增「选词成句」：词语打乱重组，三档难度持续闯关，3 颗心挑战','趣学新增「句式寻宝」：陈述/疑问/反问/双重否定/缩句/扩句/病句/修辞 8 座岛屿寻宝闯关，集宝石','年级选择下拉框独占一行、更醒目','首页底部新增「💾 下载离线版」，可把当前网页保存为本地文件离线使用']},
  {v:'v2.8',date:'2026-08-16',items:['首页全面改版：新增跟读/字词/精读/训练/趣学/阅读六大功能快捷卡片，选课后一键直达；"全部课文"列表移除，学习日历与学习报告下移','新增积分养成系统：学习得积分（每日上限40分），积分明细可查，可在家园领养小鸡、小猫、熊猫、种向日葵并喂养升级','首页新增「小学必背古诗文」：收录一至六年级必背古诗词，逐首配译文与赏析，支持朗读','《香港，璀璨的明珠》订正为2025修订版统编教材原文（万国市场/美食天堂/旅游胜地结构），精读解析与训练题同步更新','消灭错别字游戏重写：字符级定位保证点击判定准确，课文词库与通用词库混合随机出题，三关挑战不再重复同一组错字','加/改课文入口与顶栏更新日志入口隐藏，更新日志移至首页底部；选教材改为一行展示']},
  {v:'v2.7',date:'2026-08-15',items:['六年级上、下册课本内容全量填充：上册45个、下册29个条目全部补齐原文（重点节选）、会认/会写字、词语、精读解析与专项训练（含课内阅读理解）','六年级语文园地一~八补齐完整内容：交流平台、词句段运用、日积月累（已按教材核对）','六年级两册11次习作全部配"手把手"写作指导（审题/选材/提纲/妙招/好词/避坑），并新增33篇优秀范文（附点评）','至此二~六年级全部填充完成，仅剩一年级待填充']},
