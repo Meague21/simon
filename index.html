@@ -287,6 +287,18 @@
 
   .funcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px;margin-top:6px}
   .funccard{background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px 6px;text-align:center;cursor:pointer;transition:.15s}
+  .garden-scene{position:relative;background:linear-gradient(180deg,#bfe6ff 0%,#dff3ff 42%,#cdeec0 42%,#a8dd96 100%);border-radius:14px;padding:14px 10px 16px;margin:8px 0;overflow:hidden;border:1px solid #cfe8c8}
+  .garden-scene .sun{position:absolute;top:8px;right:12px;font-size:26px}
+  .garden-scene .cloud{position:absolute;top:10px;left:14px;font-size:20px;opacity:.9}
+  .garden-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;position:relative;z-index:2;margin-top:26px}
+  .pet-card{width:84px;text-align:center;cursor:pointer;transition:.15s;background:rgba(255,255,255,.72);border-radius:12px;padding:8px 4px;border:1px solid rgba(120,160,110,.35)}
+  .pet-card:active{transform:scale(.94)}
+  .pet-card .pemoji{font-size:30px;line-height:1.1}
+  .pet-card .pname{font-size:11px;font-weight:800;color:#3c5a34;margin-top:2px}
+  .pet-card .pstage{font-size:9px;color:#7a8f72}
+  .pet-card .feedhint{font-size:9px;color:var(--brand);margin-top:2px}
+  .pet-pop{animation:petpop .5s ease}
+  @keyframes petpop{0%{transform:scale(.6)}55%{transform:scale(1.18)}100%{transform:scale(1)}}
   .funccard:active{transform:scale(.96)}
   .funccard .ficon{width:46px;height:46px;margin:0 auto;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px}
   .funccard .fname{font-weight:800;font-size:14px;margin-top:6px}
@@ -375,7 +387,7 @@ const GRADES=['一年级','二年级','三年级','四年级','五年级','六�
 const VOLS=['上册','下册'];
 let LESSONS=[], PROGRESS={}, CUR='', SEC='home', PAGE='home';
 let selGrade='四年级', selVol='上册', selUnit='';
-const VERSION='v3.4';
+const VERSION='v3.5';
 const REC={};
 let trainFilter='全部', trainState=null;
 const READ={}; let READCAT='全部';
@@ -2548,12 +2560,12 @@ xiuzuo1:[
  {h:'避坑提醒',b:'① 只写地方名字，不写它到底好在哪；② 一次推荐好几个地方，哪个都没写具体；③ 全篇都是"很美""很好玩"这样的空话，没有具体细节。'}
 ],
 xiuzuo2:[
- {h:'审题立意',b:'写一位（或几位）家人，重点是抓住他/她最鲜明的一个特点（外貌、性格、爱好或习惯），用一件真实具体的事把特点写清楚，表达真情实感。秘诀：特点 + 一件具体的事。'},
- {h:'选材锦囊',b:'挑特点最突出的写：幽默的爸爸、爱唠叨的妈妈、闲不住的爷爷、调皮的妹妹、"书虫"哥哥……给家人起个有趣的外号（"幽默大师""厨神""老顽童"），文章一下子就生动了。'},
- {h:'结构提纲',b:'开头：介绍写谁，点出他/她最突出的特点（可用外号开头）。中间：写一件具体的事——他/她怎么说的、怎么做的、什么表情，把动作和语言写细。结尾：回扣特点，表达对家人的爱。'},
- {h:'写作妙招',b:'① 外貌描写只挑一两个和特点有关的写，不要从头写到脚；② 事例里一定要有语言描写和动作描写，让人物"开口说话"；③ 可以先抑后扬（先写"讨厌"再写感动），更有味道。'},
- {h:'好词百宝箱',b:'眉开眼笑、喋喋不休、聚精会神、满头大汗、和颜悦色、心灵手巧、任劳任怨、幽默风趣、温柔体贴、憨态可掬'},
- {h:'避坑提醒',b:'① 把一个人的特点罗列一堆，没有重点；② 只写"她很温柔"这样的评价，不写具体事例；③ 写好几口人，每人一句，都像流水账——写多位也要有主有次。'}
+ {h:'审题立意',b:'把家想象成一个"动物园"：想想每位家人和哪种动物最像（性格、爱好、习惯、长相），给每个人都写上一段。关键：找到"像"的地方，把"像"写具体。'},
+ {h:'选材锦囊',b:'爸爸像老黄牛（勤劳）/老虎（威严）/熊（憨厚）；妈妈像蜜蜂（忙碌）/百灵鸟（爱唱歌）/猫（温柔）；爷爷像老牛/乌龟；自己像猴子（调皮）/小兔子（活泼）。一人配一种动物，特点要鲜明。'},
+ {h:'结构提纲',b:'开头：总写"我家是个小小的动物园"。中间：每人一段——先写像什么动物，再用一件具体的事写"怎么像"。结尾：总结"生活在这个动物园里真幸福"。'},
+ {h:'写作妙招',b:'① 比喻要贴切：勤劳→老黄牛，忙碌→蜜蜂，威严→老虎；② 用具体事例支撑，别只说"爸爸像老黄牛"就完了；③ 语言活泼，可以幽默一点儿。'},
+ {h:'好词百宝箱',b:'任劳任怨、勤勤恳恳、忙忙碌碌、威风凛凛、憨态可掬、活蹦乱跳、叽叽喳喳、温柔体贴、不辞辛劳、其乐融融'},
+ {h:'避坑提醒',b:'① 只写"像什么"，不写"为什么像"；② 动物和家人特点对不上（把勤劳的妈妈写成懒猫）；③ 每个人一笔带过，没有具体事例。'}
 ],
 xiuzuo3:[
  {h:'审题立意',b:'写连续的观察日记：选一种动物、植物或自然现象，连续观察几天，记录它的变化。日记格式不能丢——每则都要写清日期、星期和天气。'},
@@ -2611,10 +2623,9 @@ xiuzuo1:[
  {title:'推荐外婆家的菜园',text:'你要问我最想去哪儿，我会大声说："外婆家的菜园！"\n菜园不大，却是个热闹的小世界。春天，油菜花金黄金黄的，蝴蝶在花间跳舞；夏天，西红柿像一个个小红灯笼，挂在枝头；黄瓜顶着黄花，懒洋洋地躺在架子上。外婆说，这些都是她一锄头一锄头种出来的。\n我最爱帮外婆摘菜。我提着竹篮，钻进菜地，摘下一个红彤彤的西红柿，擦一擦就咬一口，酸酸甜甜的汁水一下子溢满嘴巴。外婆在旁边笑："小馋猫！"\n傍晚，我们用刚摘的菜做了一大桌好吃的。我觉得，那是世界上最美味的饭菜。\n外婆家的菜园，有好看的景，有好吃的菜，还有外婆的爱。这样的地方，难道不值得推荐吗？',note:'按季节写菜园的样子，又写摘西红柿、吃晚饭的事，景、事、情融为一体，结尾反问有力。'}
 ],
 xiuzuo2:[
- {title:'幽默的爸爸',text:'我的爸爸高高的，戴着一副黑框眼镜，眼睛里总是藏着笑。他是我们家的"开心果"。\n有一回，我数学没考好，垂头丧气地坐在沙发上。爸爸走过来，看了看试卷，没有批评我，反而清了清嗓子，一本正经地说："这位同志，不要灰心，在哪里摔倒，就在哪里……先躺一会儿，再爬起来嘛！"我"扑哧"一声笑了。接着，他坐下来，一道题一道题地给我讲，直到我全部弄懂。\n爸爸还特别爱讲笑话，每次讲完，自己先笑得前仰后合。妈妈总说："你们爷俩，真是一对活宝。"\n这就是我的幽默爸爸，他让我们家充满了笑声。我爱我的爸爸。',note:'"先躺一会儿再爬起来"，一句话就把爸爸的幽默和温柔都写活了。一件事，特点立住。'},
- {title:'我的"百变"妈妈',text:'我的妈妈像一位魔术师，会"变"出很多角色。\n我写作业时，她是严格的老师。有一次我写字潦草，妈妈眉头一皱："重写！"我只好擦掉，一笔一画重新写。写完后，妈妈又笑着说："看，这不是写得很漂亮嘛！"\n在厨房里，她是厉害的厨师。西红柿炒蛋、红烧排骨、清蒸鲈鱼……香味飘到我的房间里，馋得我直流口水。\n到了周末，她又成了我的玩伴。陪我打羽毛球、放风筝，笑得比我还大声。\n这就是我的妈妈，严格的、能干的、爱玩的妈妈。不管哪一个，都是我最爱的妈妈。',note:'用"百变"的构思串起三个小场景，段落整齐，一个立体的妈妈跃然纸上。'},
- {title:'"百事通"爷爷',text:'我的爷爷头发花白，鼻梁上架着一副老花镜。别看他年纪大，在我们家，人人都叫他"百事通"。\n爷爷特别爱读书，报纸、《十万个为什么》都是他的好朋友。不管问什么，他都能答上来。有一次我问："爷爷，月亮为什么老跟着我走？"爷爷扶扶眼镜，认真地讲："月亮离我们很远很远，你走的时候，看过去它就像在跟着你。"说完，他还带我到院子里，用放大镜观察树叶上的纹路。\n爷爷的手也很巧。家里的钟表、风扇不转了，他拆开摆弄几下，就修好了。我说，爷爷的手是魔法手。\n我爱我的"百事通"爷爷。长大后，我也要像他一样，做一个有学问的人。',note:'外号开头，特点鲜明。"问月亮"和"修家电"两件事，把"百事通"撑了起来，有理有据。'},
- {title:'家有"调皮鬼"',text:'我的妹妹今年三岁，扎着两个小辫子，眼睛圆圆的，看上去特别乖巧。可实际上，她是个不折不扣的"调皮鬼"。\n上星期天，我正在房间里画画。妹妹摇摇晃晃地走进来，趁我不注意，抓起蜡笔在我的画上涂了一大片。我回头一看，气得正要发火，她却举着画，眨巴着眼睛说："姐姐，我帮你画了个大恐龙！"看着她那副可爱的样子，我的气一下子消了，真是哭笑不得。\n不过，调皮鬼也有贴心的时候。妈妈下班回家，她会"哒哒哒"跑过去拿拖鞋，甜甜地喊一声"妈妈辛苦啦"，把妈妈一天的疲劳都喊跑了。\n这就是我的妹妹，一个让人又气又爱的小家伙。',note:'先写调皮、再写贴心，先抑后扬，妹妹的形象真实可爱，"哭笑不得"用得很准。'}
+ {title:'我家是个"动物园"',text:'我家是个小小的"动物园"，里面住着几只可爱的"动物"。\n我的爸爸是一头勤劳的"老黄牛"。他每天天不亮就起床，送我去上学，然后去上班。晚上下班回来，还要做饭、洗碗、辅导我写作业。有一次，爸爸加班到很晚才回家，我劝他早点休息，他却笑着说："不累，把活儿干完才踏实。"你说，他像不像一头任劳任怨的老黄牛？\n我的妈妈是一只忙碌的"小蜜蜂"。她从早到晚忙个不停，洗衣、拖地、买菜、做饭，一刻也闲不下来。她还总爱"嗡嗡嗡"地叮嘱我："作业写完了吗？""水壶带了吗？"虽然有时我觉得她有点儿唠叨，但我知道，这都是她对我的爱。\n而我呢，是一只调皮的"小猴子"。我整天蹦蹦跳跳，一刻也坐不住。有一次，我在沙发上翻跟头，结果"扑通"一声摔了下来，把妈妈吓了一跳。\n这就是我家的"动物园"，我爱这个温暖、幸福的家！',note:'爸爸=老黄牛、妈妈=蜜蜂、我=猴子，一人一段，都用具体事例写出"像"在哪里，结尾点题，结构清晰。'},
+ {title:'小小"动物园"',text:'欢迎大家来到我家的"动物园"！这里不收门票，随时欢迎参观。\n先介绍我的"老虎"爸爸。爸爸平时对我很严厉，尤其是检查作业的时候，眉头一皱，眼睛一瞪，吓得我大气都不敢出。可别以为他只会在家里"威风"，他工作起来可认真了，常常为了一个方案忙到深夜。这就是我的"老虎"爸爸，威严又可靠。\n我的妈妈是一只温柔的"小猫"。她说话轻声细语，总是笑眯眯的。每天放学，她都会变着花样给我做好吃的。我难过的时候，她就轻轻摸着我的头安慰我，让我心里暖暖的。\n我的爷爷是一头慢悠悠的"老牛"。他走路慢，说话慢，做事也不紧不慢。可他特别疼我，每天都接送我上学，风雨无阻。\n我就是那只活泼的"小猴子"啦！我爱爬高，爱跑跳，家里到处都是我的笑声。\n生活在这个"动物园"里，我感到无比幸福！',note:'开头用"动物园不收门票"增添趣味，每位家人特点鲜明（老虎=严厉可靠、猫=温柔、老牛=慢而疼人、猴子=活泼），详略得当。'},
+ {title:'快乐的"动物园"',text:'我家有一个快乐的"动物园"，想知道里面都住着谁吗？快跟我来看看吧！\n我的爸爸是一只"大狗熊"。他长得胖胖的，走起路来一摇一摆，特别可爱。别看他平时憨憨的，干起活来可有力气了。家里的重活儿都被他包了，搬桌子、扛大米，都不在话下。他还特别幽默，总爱讲笑话逗我们开心，是我们家的"开心果"。\n我的妈妈是一只爱唱歌的"百灵鸟"。她做家务的时候总爱哼着歌，做饭的时候也唱，歌声可好听了。在她的带动下，我们家常常充满欢声笑语。\n我的奶奶像一只慈祥的"老绵羊"。她总是笑眯眯的，对我特别好。每次我去奶奶家，她都会给我做好吃的，还把最好的东西留给我。\n我呀，是一只爱看书的"小书虫"，一拿起书就放不下。\n这就是我家快乐的"动物园"，我爱我家！',note:'爸爸=狗熊（憨厚有力）、妈妈=百灵鸟（爱唱歌）、奶奶=绵羊（慈祥）、我=书虫，比喻贴切，充满生活气息，结尾点题。'}
 ],
 xiuzuo3:[
  {title:'绿豆发芽观察日记',text:'9月20日 星期六 晴\n今天，我把一把绿豆泡进了水里。绿豆小小的、绿绿的，硬邦邦的，像一颗颗小石子。我在碗口蒙上湿纱布，悄悄说："小绿豆，快快发芽吧！"\n9月22日 星期一 晴\n一早掀开纱布，哇！绿豆喝饱了水，变得胖乎乎的，有的还撑破了绿衣裳，露出白白的肚皮。裂缝里钻出一个小芽，白白的、尖尖的，大约 5 毫米长。\n9月25日 星期四 多云\n豆芽长得真快！茎又白又嫩，挺得直直的，顶上张开两片小叶子，像一把把小剪刀。我量了量，最高的已经有 7 厘米了！\n这次观察让我发现：小小的绿豆，竟然有这么大的生长力量。',note:'日期天气齐全，变化过程写得清清楚楚，还用上"5 毫米""7 厘米"这样的数字，观察真细致。'},
@@ -11492,7 +11503,7 @@ function afterNav(){ trainFilter='全部'; trainState=null; render(); }
 /* ===== 语音合成（标准普通话） ===== */
 let VOICES=[];
 function loadVoices(){ try{ VOICES=speechSynthesis.getVoices(); }catch(e){} }
-if('speechSynthesis' in window){ speechSynthesis.onvoiceschanged=loadVoices; loadVoices(); }
+if('speechSynthesis' in window){ speechSynthesis.onvoiceschanged=loadVoices; loadVoices(); setTimeout(loadVoices,800); document.addEventListener('touchstart',function _fv(){ loadVoices(); document.removeEventListener('touchstart',_fv); },{passive:true}); }
 function pickVoice(){
   const zh=VOICES.filter(v=>/^zh/i.test(v.lang||'') && !/yue|粤|cantonese|hong ?kong|\bhk\b/i.test((v.lang||'')+' '+(v.name||'')));
   if(!zh.length) return null;
@@ -11501,17 +11512,30 @@ function pickVoice(){
   return zh[0];
 }
 function speak(text,rate){
-  if(!('speechSynthesis' in window)){ toast('当前浏览器不支持朗读'); return; }
+  if(!('speechSynthesis' in window)){ toast('当前浏览器不支持朗读，请改用 Chrome 浏览器'); return; }
   let spoken=text;
-  // 仅「单字」用带声调拼音朗读，保证声调准确（如 霎 shà、鹅 é）；
-  // 多字词 / 句子直接读汉字，避免「笼罩」被拼读成 lóng zhào 之类的拼音。
-  if(text && /[一-龥]/.test(text)){
+  if(text && /[\u4e00-\u9fa5]/.test(text)){
     const arr=[...text];
     if(arr.length===1 && PYMAP[arr[0]]) spoken=PYMAP[arr[0]];
   }
-  speechSynthesis.cancel();
+  try{ speechSynthesis.cancel(); }catch(e){}
   const u=new SpeechSynthesisUtterance(spoken); u.lang='zh-CN'; u.rate=rate||0.92; u.pitch=1;
-  const v=pickVoice(); if(v) u.voice=v; speechSynthesis.speak(u);
+  const doSpeak=()=>{ let v=null; try{ v=pickVoice(); }catch(e){} if(v) u.voice=v;
+    try{ speechSynthesis.speak(u); }catch(e){}
+    // 安卓 Chrome 常见"队列卡住"：稍后强制 resume 唤醒
+    setTimeout(()=>{ try{ if(speechSynthesis.paused){ speechSynthesis.resume(); } }catch(e){} },200);
+  };
+  // 安卓上语音列表异步加载：先等 voiceschanged，再兜底定时
+  if(VOICES.length){ doSpeak(); }
+  else{
+    let fired=false;
+    const once=()=>{ if(fired) return; fired=true; loadVoices(); doSpeak(); };
+    try{ speechSynthesis.addEventListener('voiceschanged',once); }catch(e){}
+    setTimeout(once,500);
+    setTimeout(()=>{ try{ speechSynthesis.removeEventListener('voiceschanged',once);}catch(e){} },3000);
+  }
+  // 看门狗：1.2 秒后若既无播放也无排队，且设备没有任何语音引擎 → 提示
+  setTimeout(()=>{ try{ if(!speechSynthesis.speaking&&!speechSynthesis.pending&&speechSynthesis.getVoices().length===0){ toast('未检测到语音引擎：请在手机"设置→系统→语言与输入→文字转语音"中启用语音引擎（如 Google 语音），或改用 Chrome 浏览器'); } }catch(e){} },1500);
 }
 function pickMime(){
   if(!window.MediaRecorder||!MediaRecorder.isTypeSupported) return '';
@@ -12067,20 +12091,29 @@ const GARDEN_PETS=[
  {id:'cat',name:'小猫',emoji:'🐱',cost:18,stages:['🐾','🐱','🐱','🐈','🐈'],names:['小奶猫','猫咪','猫咪','大猫','猫咪大王']},
  {id:'rabbit',name:'小兔',emoji:'🐰',cost:20,stages:['🐾','🐰','🐰','🐇','🐇'],names:['兔宝宝','小兔子','小兔子','蹦蹦兔','兔兔侠']},
  {id:'panda',name:'熊猫',emoji:'🐼',cost:30,stages:['🐾','🐼','🐼','🐼','🐼'],names:['熊猫宝宝','小熊猫','熊猫','大熊猫','团团']},
+ {id:'dog',name:'小狗',emoji:'🐶',cost:18,stages:['🐾','🐶','🐶','🐕','🦮'],names:['小奶狗','小狗狗','狗狗','大狗','忠诚卫士']},
+ {id:'turtle',name:'小乌龟',emoji:'🐢',cost:16,stages:['🥚','🐢','🐢','🐢','🐢'],names:['龟蛋','小龟','小龟','慢慢龟','长寿龟']},
+ {id:'fish',name:'小金鱼',emoji:'🐠',cost:14,stages:['🥚','🐟','🐠','🐠','🐡'],names:['鱼卵','小鱼','小金鱼','金鱼','胖胖鱼']},
+ {id:'hamster',name:'小仓鼠',emoji:'🐹',cost:17,stages:['🐾','🐹','🐹','🐹','🐹'],names:['小仓鼠','仓鼠','仓鼠','胖仓鼠','仓鼠大王']},
  {id:'tree',name:'小树苗',emoji:'🌳',cost:10,stages:['🌰','🌱','🌿','🌳','🌲'],names:['种子','发芽','小树苗','小树','参天大树']},
- {id:'flower',name:'向日葵',emoji:'🌻',cost:12,stages:['🌰','🌱','🌿','🌼','🌻'],names:['种子','发芽','长叶','花苞','盛开']}
+ {id:'flower',name:'向日葵',emoji:'🌻',cost:12,stages:['🌰','🌱','🌿','🌼','🌻'],names:['种子','发芽','长叶','花苞','盛开']},
+ {id:'rose',name:'玫瑰花',emoji:'🌹',cost:14,stages:['🌰','🌱','🌿','🌷','🌹'],names:['种子','发芽','长叶','花苞','红玫瑰']},
+ {id:'cactus',name:'仙人掌',emoji:'🌵',cost:11,stages:['🌰','🌱','🌵','🌵','🌵'],names:['种子','发芽','小仙人掌','仙人掌','大仙人掌']},
+ {id:'strawberry',name:'草莓',emoji:'🍓',cost:13,stages:['🌰','🌱','🌿','🌸','🍓'],names:['种子','发芽','长叶','开花','甜草莓']},
+ {id:'sakura',name:'樱花树',emoji:'🌸',cost:22,stages:['🌰','🌱','🌿','🌸','🌸'],names:['种子','发芽','小树','花苞','满树樱花']}
 ];
 function openGarden(){
   const pts=PTS.balance(); const owned=PTS.owned();
-  let h=`<h3>🐣 我的家园 <span class="tag">积分 ${pts.points}</span></h3>
+  let h=`<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><h3 style="margin:0">🐣 我的家园 <span class="tag">积分 ${pts.points}</span></h3><button class="btn sm" onclick="closeModal()" style="flex:none">✕ 关闭</button></div>
     <div class="cbhint">学习得积分，用积分领养小动物、种花草，喂养它们长大。每日积分上限 ${PTS_CAP} 分。</div>`;
-  h+=`<div class="subh">我的伙伴（${owned.length}）</div>`;
+  h+=`<div class="subh">我的家园场景（${owned.length}）</div>`;
   if(owned.length){
-    h+=`<div class="funcgrid">`+owned.map(o=>{
+    h+=`<div class="garden-scene"><span class="sun">☀️</span><span class="cloud">☁️</span><div class="garden-grid">`+owned.map(o=>{
       const def=GARDEN_PETS.find(p=>p.id===o.id); const stg=o.stage||0;
-      return `<div class="funccard owned-pet" data-pet="${o.id}"><div class="ficon" style="font-size:26px;background:#fff7ec">${def?def.stages[stg]:'🐾'}</div><div class="fname">${o.name}</div><div class="p" style="font-size:10px;color:var(--sub)">${def?def.names[stg]:''} · 点我喂养(5分)</div></div>`;
-    }).join('')+`</div>`;
-  } else h+=`<div class="cbhint">还没有伙伴，去领养一个吧！</div>`;
+      const maxed=stg>=4;
+      return `<div class="pet-card" data-pet="${o.id}"><div class="pemoji">${def?def.stages[stg]:'🐾'}</div><div class="pname">${o.name}</div><div class="pstage">${def?def.names[stg]:''}</div><div class="feedhint">${maxed?'已长大 ✦':'喂养 5分'}</div></div>`;
+    }).join('')+`</div></div>`;
+  } else h+=`<div class="cbhint">家园还空空的，去领养一个小伙伴吧！</div>`;
   h+=`<div class="subh">领养中心</div><div class="funcgrid">`+GARDEN_PETS.map(p=>{
     const ownedIds=owned.map(o=>o.id); const isOwned=ownedIds.includes(p.id);
     return `<div class="funccard adopt-pet" data-adopt="${p.id}" style="${isOwned?'opacity:.4':''}"><div class="ficon" style="font-size:26px;background:#f0f7ff">${p.emoji}</div><div class="fname">${p.name}</div><div class="p" style="font-size:10px;color:var(--sub)">${isOwned?'已领养':p.cost+' 积分领养'}</div></div>`;
@@ -12090,12 +12123,13 @@ function openGarden(){
   document.querySelectorAll('.adopt-pet').forEach(c=>c.onclick=()=>{
     const p=GARDEN_PETS.find(x=>x.id===c.dataset.adopt);
     if(PTS.owned().some(o=>o.id===p.id)){ toast('已经领养过啦'); return; }
-    if(PTS.spend(p.cost,'领养'+p.name)){ PTS.adopt(p); toast('领养成功：'+p.name); openGarden(); }
+    if(PTS.spend(p.cost,'领养'+p.name)){ PTS.adopt(p); toast('领养成功：'+p.name+' 🎉'); openGarden(); }
     else toast('积分不足，需要 '+p.cost+' 分');
   });
-  document.querySelectorAll('.owned-pet').forEach(c=>c.onclick=()=>{
-    const id=c.dataset.pet;
-    if(PTS.spend(5,'喂养'+id)){ if(PTS.feed(id)) toast('喂养成功，长大了一点！'); openGarden(); }
+  document.querySelectorAll('.pet-card').forEach(c=>c.onclick=()=>{
+    const id=c.dataset.pet; const o=PTS.owned().find(x=>x.id===id);
+    if(o&&(o.stage||0)>=4){ toast(o.name+' 已经长大啦，真棒！'); return; }
+    if(PTS.spend(5,'喂养'+id)){ if(PTS.feed(id)){ c.classList.add('pet-pop'); toast('喂养成功，'+id+' 长大了一点！🌟'); setTimeout(openGarden,420); } }
     else toast('积分不足，喂养需要 5 分');
   });
 }
@@ -12160,7 +12194,7 @@ function openBisong(){
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>${esc(it.t)}</b><span class="tag">${esc(it.v)} · ${esc(it.u)}</span></div>
       <div style="margin:6px 0;line-height:2;color:var(--ink)">${fmtRiji(it.c)}</div></div>`).join('');
   }
-  const h=`<h3>📜 小学必背古诗文 <span class="tag">日积月累</span></h3>
+  const h=`<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><h3 style="margin:0">📜 小学必背古诗文 <span class="tag">日积月累</span></h3><button class="btn sm" onclick="closeModal()" style="flex:none">✕ 关闭</button></div>
    <div class="catbar" style="margin-bottom:6px">${tabs.map(t=>`<div class="chip ${BISONG_TAB===t[0]?'active':''}" data-tab="${t[0]}" style="font-size:14px;padding:6px 14px">${t[1]}</div>`).join('')}</div>
    ${body}
    <div class="grow" style="margin-top:10px"><button class="btn" onclick="closeModal()">关闭</button></div>`;
@@ -13492,6 +13526,7 @@ function openAdd(){
 
 
 const CHANGELOG=[
+ {v:'v3.5',date:'2026-08-23',items:['修复安卓端（OPPO/华为等）朗读无声问题：语音引擎异步加载适配+播放队列唤醒+无语音引擎时给出明确指引','必背古诗文弹窗顶部新增"✕ 关闭"按钮','四上二单元习作「小小"动物园"」指导与范文全部按动物园主题重写（3篇300+字范文）','家园系统扩充：新增小狗/乌龟/金鱼/仓鼠/玫瑰/仙人掌/草莓/樱花树等，共14种；家园新增蓝天草地场景背景，喂养有成长动画']},
  {v:'v3.4',date:'2026-08-22',items:['六年级上册课文全文逐字精校：《草原》《草虫的村落》《丁香结》《狼牙山五壮士》《开国大典》《我的战友邱少云》《桥》《穷人》《金色的鱼钩》《灯光》《盼》《只有一个地球》《青山不老》《表里的生物》《他们那时候多有趣啊》《好的故事》全部按课本补齐为完整原文','八个语文园地全部补齐完整内容：梳理与交流、词句段运用、书写提示、识字加油站、日积月累逐项按课本录入','新增「近反义词」功能：字词页第4个标签，六年级上册每课配近义词、反义词']},
  {v:'v3.3',date:'2026-08-22',items:['六年级上册全册按2025修订版课本校对：目录按新教材重构（《灯光》移至第五单元、删去《夏天里的成长》、课文序号与单元顺序全面对齐课本）','《文言文二则》按新教材更正为《两小儿辩日》《曹冲称象》，配译文与练习','《少年闰土》《我的伯父鲁迅先生》补全被截断的全文（月下刺猹、雪地捕鸟、贝壳跳鱼儿、谈水浒传、笑谈碰壁、放花筒、救助车夫、女佣阿三等完整内容）','八个语文园地日积月累按课本更新：江畔独步寻花/爱国名言/送元二使安西/回乡偶书/五行五谷五音五彩/过故人庄/鲁迅名言','新增两篇习作：七单元「有你，真好」、八单元「传承好家风」（含手把手指导与范文）']},
  {v:'v3.2',date:'2026-08-22',items:['二年级上册全册按2025修订版课本逐篇校对：23篇阅读课文+识字单元4篇（场景歌/树之歌/拍手歌/田家四季歌）原文全部对照课本订正','生字词全部按课本识字表/写字表/词语表重排（全册识字460字、写字250字逐一核对）','八个语文园地按课本更新：识字加油站、字词句运用、日积月累（梅花/数九歌/小儿垂钓/写景对联/勤学名言/立志名言/夜宿山寺/论语孟子名言）']},
